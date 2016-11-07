@@ -9,11 +9,8 @@ html,body{
 	left:0;
 	right:0;
 	bottom:0;
-
-	overflow:hidden;
 }
 
 canvas,iframe,img{
-	max-width:50%;
-	max-height:50%;
+	max-width:100%;
 }
