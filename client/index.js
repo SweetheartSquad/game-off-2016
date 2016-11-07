@@ -67,6 +67,7 @@ function draw_character(character){
 	ctx.fillStyle = "#FFFFFF";
 	
 	ctx.font = "bold "+DPI/4+"px Calibri";
+	ctx.fillText(character.name, DPI/8, character_h/4);
 	for(var i = 0; i < character.implants.length; ++i){
 		ctx.fillText(character.implants[i], DPI/8, character_h/4*3+i*DPI/4);
 	}
@@ -128,6 +129,37 @@ function main(){
 // procgen the varying elements of the game (TODO)
 function generateGame(){
 	suits=["A","B","C"];
+
+	ability_categories=["virus","program"];
+
+	characters=[];
+	for(var i = 0; i < 4; ++i){
+		var character={
+			name:"name",
+			implants:[]
+		};
+		character.implants.push("implant 1");
+		character.implants.push("implant 2");
+		characters.push(character);
+	}
+
+	files=[];
+	for(var i = 0; i < 20; ++i){
+		var file={
+			points:Math.floor(Math.random()*4),
+			suit:Math.floor(Math.random()*3)
+		};
+		files.push(file);
+	}
+
+	abilities=[];
+	for(var i = 0; i < 30; ++i){
+		var ability={
+			category: ability_categories[Math.round(Math.random())],
+			description: "/* hacker(s) with most files: discard 3 files */"
+		};
+		abilities.push(ability);
+	}
 }
 
 // draw the game elements to the canvas
@@ -141,26 +173,17 @@ function drawGame(){
 	// characters
 	var t=ctx.currentTransform;
 	for(var i = 0; i < 4; ++i){
-		draw_character({
-			// temp character
-			implants:[
-				"+1 for all A files",
-				"double all C files"
-			]
-		});
+		draw_character(characters[i]);
 		ctx.translate(character_w,0);
 	}
 	ctx.resetTransform();
 	
 	// files
 	ctx.translate(0,character_h);
+	var file=0;
 	for(var y = 0; y < 2; ++y){
 		for(var x = 0; x < 10; ++x){
-			draw_file({
-				// temp file
-				points:Math.floor(Math.random()*4),
-				suit:Math.floor(Math.random()*3)
-			});
+			draw_file(files[file++]);
 			ctx.translate(file_w,0);
 		}
 		ctx.translate(-size.x,file_h);
@@ -170,14 +193,11 @@ function drawGame(){
 	// abilities
 	ctx.translate(size.x,size.y/2);
 	ctx.rotate(Math.PI/2);
+	var ability=0;
 	for(var y = 0; y < 12; ++y){
 		for(var x = 0; x < 4; ++x){
 			if(x <= 0 || y >= 6){
-				draw_ability({
-					// temp ability
-					category: "virus",
-					description: "/* hacker(s) with most files: discard 3 files */"
-				});
+				draw_ability(abilities[ability++]);
 			}
 			ctx.translate(ability_w,0);
 		}
