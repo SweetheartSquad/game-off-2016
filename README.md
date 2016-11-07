@@ -1,94 +1,87 @@
-# GitHub Game Off 2016
+# ProcJam/GitHub Game-off 2016 entry #
+## hack the planet: the card game ##
+### by planet, I mean the node in the center of the game ###
+#### (it's not the planet) ####
+##### (the game's also more accurately a board game I guess) #####
 
-![GitHub Game Off 2016 Theme is Hacking, Modding, or Augmenting](https://cloud.githubusercontent.com/assets/121322/19498019/d8827370-9543-11e6-82d8-6da822b6147b.png)
+# How To Play #
+## Setup ##
+- Generate, print, and cut up a game page
+- Shuffle the file cards and place the deck on the "file" slot on the game board
+- Shuffle the ability cards and place the deck on the "ability" slot on the game board
+- Shuffle character cards and have each player choose one randomly without showing the other players (these will be secret until the end of the game)
+- Place an avatar token for each player on the "start" positions on the game board
+- Decide who goes first (youngest player, roll a die, etc.)
 
-<div align="right">
-  <sup>
-    <a href="#the-challenge">English</a> ·
-    <a href="#お題">日本語</a>
-  </sup>
-</div>
+## Playing ##
+- 2 actions per turn (you can do the same action twice)
+- actions:
+ - move your avatar 1 tile
+ - draw an ability card
+ - use an ability card
+ - if on the node, draw a file
+- once a player has used both of their actions, next player starts their turn
+- when ability cards are used, they are taken out of the game (don't put they back in the ability deck)
 
-## The Challenge
+## Game Over ##
+- as soon as the last file is drawn, the game is over. each player reveals their character+implants, and points are tallied.
+- a player's points are calculated as the sum of all the files they hold, plus any bonuses from their implants.
 
-You have the entire month of November to create a game *loosely* based on the theme **hacking, modding and/or augmenting**.
 
-What do we mean by **loosely** based on hacking, modding and/or augmenting? We literally mean, *loosely* based. Some examples might be:
+# random gameplay ideas + procgen notes #
+- look at files (one player peeks at facedown)
+- reveal 2-3/all files (all your current facedown become faceup) (mp only?)
+- steal 1-2 files
+- look + steal 1 file
+- destroy 1-2 files
+- discard 1-2 files
+- look + destroy 1 file
+- trade files
+- everyone discard their highest/lowest 
+- draw 1-2 files
+- move player up tod 2-3 tiles
+- everyone move back 1 tile (mp only?)
+-
 
-* an endless runner where you *hack* down binary trees in your path with a pixelated axe,
-* a *modern* take on a classic e.g. a roguelike set in a 3D or VR world, or
-* an *augmented* reality game bringing octopus/cat hybrids into the real world.
 
-Unleash your creativity. You can work alone or with a team and build for any platform or device. The use of open source game engines and libraries is encouraged but not required.
+prefix
+- everyone on/not on the node
+- the person with the most/least
+- person with the most/least ability cards
+- everyone with/without revealed (only negative)
+[filetype]
+-
 
-We'll highlight some of our favorites on the GitHub blog, and the world will get to enjoy (and maybe even contribute to and/or learn from) your creations.
 
-## How to participate
+character
+- all [filetype] are worth double/+1
+- +(1-3) if you have/don't have [filetype]
+- play ability after last file drawn
+- each ability counts for 1 file point
+- if you have more type than type
 
-* [Sign up for a free personal account][github-signup] if you don't already have one.
-* Fork [this repository][game-off-repo] to your personal account (or to a [free organization account][github-signup-org]).
-* Clone the repository on your computer and build your game.
-* Push your game source code to your forked repository before Dec 1st.
-* Update the `README.md` file to include a description of your game, how/where to play/download it, how to build/compile it, what dependencies it has, etc.
-* Submit your final game using this [form][wufoo-form].
+- maybe reshuffle cards in
 
-## It's dangerous to go alone <img src="https://octodex.github.com/images/linktocat.jpg" height="40">
+4 characters, 2 abilities come off full body diagram, text on bottom
+20 files, 3 types, worth 0-3 distributed towards 1/2, file explorer aesthetic
+30 abilities, moves more common, complex/powerful cards more rare, virus/program category, CL aesthetic
+map
 
-If you're **new to Git, GitHub, or version control**…
+filetypes: classified, restricted, top-secret, personnel, foreign intel, project plans, surveillance, encrypted, satellite imaging, evidence, private sector, meteorology, internal documents, redacted info, black ops., budget, payroll, email, weapons orders, corporate
 
-* [Git Documentation](https://git-scm.com/documentation) - everything you need to know about version control, and how to get started with Git.
-* [GitHub Help](https://help.github.com/) - everything you need to know about GitHub.
-* Questions about GitHub? Please [contact our Support team][github-support] and they'll be delighted to help you.
-* Questions specific to the GitHub Game Off? Please [create an issue][game-off-repo-issues]. This will be the official FAQ.
 
-The official Twitter hashtag for the Game Off is `#ggo16`. We look forward to playing with your creations.
 
-GLHF! <3
+dimensions (w h):
+character - x/4 y/4
+file - x/10 y/8 (maybe swap?)
+ability - y/8 x/12
+board - x/2 y/8*3
 
-## お題
+smallest px size for a letter page:
+character - 51 66
+file - 34 55 (maybe swap?)
+ability - 33 17
+board - 34 33
 
-11月いっぱいを使って、ゲームを作ってください。作ってもらいたいゲームのテーマは大まかに言って、**hacking, modding and/or augmenting(ハック、改造もしくは拡張)**です。
-
-"**大まか**に言ってhacking, modding and/or augmenting(ハック、改造もしくは拡張)"とはどういう意味でしょうか？ 文字通り、*大まか*にテーマに沿っていればいいということです。
-
-例えば、こんな例も含まれるということです:
-
-* ピクセル製の斧をつかってあなたが*叩き切った*(*hack* down)バイナリツリー上をランナーが走り続けるゲームとか
-* ゲームの古典をベースに*現代的*(*modern*)な解釈をするとか(例えばローグライクゲームを3DやVRの世界で再現してみる)
-* タコと猫のハイブリッドを現実世界に持ち込むような*拡張*現実(*augmented* reality)ゲームとか
-
-みなさんのクリエイティビティを最大限発揮できるように、1人で作業してもチームで作業しても問題ありませんし、作るゲームがどんなプラットフォーム向けでもどんなデバイス向けでも不問とします。また、オープンソースのゲームエンジンやライブラリを使用することは歓迎しますが、必須ではありません。
-
-ご応募いただいたゲームのうちいくつかはGitHubのブログで取り上げる予定です。世界中があなたが作ったゲームを楽しんでくれると思います。（そしてあなたのゲームに対して貢献もしてくれるかもしれませんし、同時にあなたのゲームから何かを学び取ることもあるでしょう）
-
-## 参加方法
-
-* まだGitHubのアカウントを持っていない場合、[GitHubにサインアップしてアカウントを作ってください。（無料のもので問題ありません）][github-signup]
-* [このリポジトリ][game-off-repo]を自分のアカウントにフォークしてください。（もしくは[オーガニゼーションにフォークしても問題ありません。もちろん無料プランでいいです。][github-signup-org])
-* 自身のコンピュータにリポジトリをクローンして、ゲームを開発してください。
-* ゲームのソースコードをフォークした自分のリポジトリに12月1日になる前にプッシュしてください。
-* `README.md`ファイルを更新して、ゲームの説明、プレイの仕方、ダウンロードの仕方、またはビルド/コンパイルの方法、依存しているライブラリ等の説明、等々、必要な情報を含めてください。
-* 最後にこの[フォーム][wufoo-form]を使ってゲームをサブミットしてください。
-
-## ヒトリデハキケンジャ コレヲ サズケヨウ <img src="https://octodex.github.com/images/linktocat.jpg" height="40">
-
-もし**GitやGitHub、バージョン管理そのものについて初心者なのであれば**...
-
-* [Git Documentation](https://git-scm.com/documentation) - バージョンコントロールについてと、Gitを使い始めるために必要な情報はここにあります。（日本語で読める情報としては[Pro Gitの日本語版](https://git-scm.com/book/ja/v2)があります）
-* [GitHub Help](https://help.github.com/) - GitHubについてはこちらを参照してください。
-* GitHubについて質問したいことがあれば、ぜひ[ここから問い合わせてください！（ただし英語でお願いします :bow: )][github-support] サポートチームが助けてくれます。
-* GitHub Game Offに関する質問については、[ここにIssueを作って聞いてください。（英語でお願いします）][game-off-repo-issues]. これが公式のFAQになっていく予定です。
-
-このGame OffのためのTwitterの公式ハッシュタグは`#ggo16`です。皆さんのゲームで遊べるのを楽しみにしています。
-
-GLHF! <3
-
-<!-- links -->
-[game-off-repo]:        https://github.com/github/game-off-2016/
-[game-off-repo-issues]: https://github.com/github/game-off-2016/issues
-[git-documentation]:    https://git-scm.com/documentation
-[github-help]:          https://help.github.com/
-[github-signup]:        https://github.com/signup/free  
-[github-signup-org]:    https://github.com/organizations/new
-[github-support]:       https://github.com/contact?form%5Bsubject%5D=GitHub%20Game%20Off
-[wufoo-form]:           https://gameoff.wufoo.com/forms/game-off-2016/
+# Libraries Used #
+jsPDF: https://github.com/MrRio/jsPDF
