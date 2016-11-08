@@ -83,8 +83,12 @@ function draw_file(file){
 	ctx.font = "bold "+DPI/2+"px Calibri";
 	ctx.fillText(file.points, file_w/2, file_h/2);
 
-	ctx.fillText(suits[file.suit], file_w/2, file_h/8*7);
 	ctx.font = "bold "+DPI/8+"px Calibri";
+
+	var a=suits[file.suit].split(" ");
+	for(var i = 0; i < a.length; ++i){
+		ctx.fillText(a[i], file_w/2, file_h/8*7+(i-a.length/2)*DPI/8);
+	}
 }
 
 function draw_ability(ability){
