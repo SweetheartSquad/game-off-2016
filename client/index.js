@@ -43,7 +43,7 @@ function init(){
 		resource.img.setAttribute('crossOrigin', 'anonymous');
 		resource.img.addEventListener("load", images.onImageLoaded.bind(images), false);
 
-		resource.img.src=toLoad[1];
+		resource.img.src = toLoad[1];
 	}
 
 	character_w=size.x/4;
@@ -64,7 +64,7 @@ function draw_character(character){
 
 	ctx.textAlign="left";
 	ctx.textBaseline="inherit";
-	ctx.fillStyle = "#FFFFFF";
+	ctx.fillStyle = "#000000";
 	
 	ctx.font = "bold "+DPI/4+"px Calibri";
 	ctx.fillText(character.name, DPI/8, character_h/4);
@@ -78,13 +78,13 @@ function draw_file(file){
 
 	ctx.textAlign="center";
 	ctx.textBaseline="middle";
-	ctx.fillStyle = "#FFFFFF";
+	ctx.fillStyle = "#000000";
 
-	ctx.font = "bold "+DPI+"px Calibri";
+	ctx.font = "bold "+DPI/2+"px Calibri";
 	ctx.fillText(file.points, file_w/2, file_h/2);
 
-	ctx.font = "bold "+DPI/4+"px Calibri";
 	ctx.fillText(suits[file.suit], file_w/2, file_h/8*7);
+	ctx.font = "bold "+DPI/8+"px Calibri";
 }
 
 function draw_ability(ability){
@@ -92,7 +92,7 @@ function draw_ability(ability){
 
 	ctx.textAlign="left";
 	ctx.textBaseline="middle";
-	ctx.fillStyle = "#FFFFFF";
+	ctx.fillStyle = "#000000";
 
 	ctx.font = "bold "+DPI/8+"px Calibri";
 
