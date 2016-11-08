@@ -66,10 +66,10 @@ function draw_character(character){
 	ctx.textBaseline="inherit";
 	ctx.fillStyle = "#000000";
 	
-	ctx.font = "bold "+DPI/4+"px Calibri";
+	ctx.font = "bold "+DPI/8+"px Calibri";
 	ctx.fillText(character.name, DPI/8, character_h/4);
 	for(var i = 0; i < character.implants.length; ++i){
-		ctx.fillText(character.implants[i], DPI/8, character_h/4*3+i*DPI/4);
+		ctx.fillText(character.implants[i], DPI/8*((i+1)%2+1), character_h-(character.implants.length-i)*DPI/8);
 	}
 }
 
