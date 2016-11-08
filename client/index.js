@@ -132,23 +132,48 @@ function main(){
 
 // procgen the varying elements of the game (TODO)
 function generateGame(){
+	// pick random suits
 	suits=[];
 	for(var i = 0; i < 3; ++i){
 		suits.push(getUniqueWord(words.files.suits));
 	}
+
+
 	ability_categories=["virus","program"];
 
+	// generate characters
 	characters=[];
 	for(var i = 0; i < 4; ++i){
 		var character={
 			name:"name",
 			implants:[]
 		};
-		character.implants.push("implant 1");
-		character.implants.push("implant 2");
+
+		// implants
+		// each character starts with a set "strength"
+		// strength decreases as implants are added
+		// better implants cost more strength
+		// all strength must be used to keep characters balanced
+		var strength=4;
+		while(strength > 0){
+			var implant=getWord(words.implants.description);
+
+			// make sure the final implant isn't more powerful than allowed
+			if(implant[1] > strength){
+				continue;
+			}
+			// make sure the first implant is a good one (we don't want all 1-strength implants)
+			if(strength==4 && implant[1]<=1){
+				continue;
+			}
+			character.implants.push(getUniqueWord(words.implants.names));
+			character.implants.push(expand(implant[0]));
+			strength-=implant[1];
+		}
 		characters.push(character);
 	}
 
+	// generate files
 	files=[];
 	for(var i = 0; i < 20; ++i){
 		var file={
@@ -158,6 +183,7 @@ function generateGame(){
 		files.push(file);
 	}
 
+	// generate abilities
 	abilities=[];
 	for(var i = 0; i < 30; ++i){
 		var ability={
@@ -240,10 +266,12 @@ function makePdf(){
 }
 
 
-
+// returns a random element in an array
 function getWord(a){
 	return a[Math.floor(Math.random()*a.length)];
 }
+
+// returns a random element in an array, and also removes that element and any copies of it from the array
 function getUniqueWord(a){
 	if(a.length <= 0){
 		throw "No words remaining.";
@@ -255,6 +283,10 @@ function getUniqueWord(a){
 		}
 	}
 	return word;
+}
+
+function expand(str){
+	return str.replace("{suits}",getWord(suits)); // this will probably need to be recursive regex instead of just a single replace on suits but fine for now
 }
 
 

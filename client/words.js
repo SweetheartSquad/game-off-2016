@@ -28,6 +28,39 @@ words={
 			[3,"2"],
 			[2,"3"]
 		]
+	},
+
+	implants:{
+		names:[
+			[1, "neo-keyboard"],
+			[1, "superphone"],
+			[1, "datalyzer"],
+			[1, "compubucket"],
+			[1, "datachip"],
+			[1, "chipdata"],
+			[1, "chipchip"],
+			[1, "neuromouse"],
+			[1, "neurotrackpad"],
+			[1, "neuronib"],
+			[1, "doodad"],
+			[1, "thingamabob"],
+			[1, "wifi module"],
+			[1, "internet access"],
+			[1, "watched the matrix"]
+		],
+		description:[
+			[1, ["all {suits} worth double", 4]],
+			[1, ["all {suits} worth +1", 3]],
+			[1, ["all {suits} worth +2", 4]],
+			[1, ["unused abilities are worth +1", 1]],
+			[1, ["unused abilities are worth +2", 2]],
+			[1, ["+1 if you have at least 1 {suits}", 1]],
+			[1, ["+2 if you have at least 1 {suits}", 2]],
+			[1, ["+3 if you have at least 1 {suits}", 3]],
+			[1, ["+1 if you don't have any {suits}", 1]],
+			[1, ["+2 if you don't have any {suits}", 2]],
+			[1, ["+3 if you don't have any {suits}", 3]]
+		]
 	}
 };
 
@@ -41,6 +74,9 @@ function processWeights(a){
 	}
 };
 
-
+// probably a better way to do this but oh well
 processWeights(words.files.suits);
 processWeights(words.files.points);
+
+processWeights(words.implants.names);
+processWeights(words.implants.description);
