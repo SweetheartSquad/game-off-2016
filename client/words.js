@@ -61,6 +61,15 @@ words={
 			[1, ["+2 if you don't have any {suits}", 2]],
 			[1, ["+3 if you don't have any {suits}", 3]]
 		]
+	},
+
+	characters:{
+		names:[
+			[1, "hacksperson"],
+			[1, "hacksman"],
+			[1, "hackswoman"],
+			[1, "hackssmith"]
+		]
 	}
 };
 
@@ -80,3 +89,5 @@ processWeights(words.files.points);
 
 processWeights(words.implants.names);
 processWeights(words.implants.description);
+
+processWeights(words.characters.names);

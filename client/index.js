@@ -145,7 +145,7 @@ function generateGame(){
 	characters=[];
 	for(var i = 0; i < 4; ++i){
 		var character={
-			name:"name",
+			name:getUniqueWord(words.characters.names),
 			implants:[]
 		};
 
