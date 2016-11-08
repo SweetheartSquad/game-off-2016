@@ -128,8 +128,10 @@ function main(){
 
 // procgen the varying elements of the game (TODO)
 function generateGame(){
-	suits=["A","B","C"];
-
+	suits=[];
+	for(var i = 0; i < 3; ++i){
+		suits.push(getUniqueWord(words.files.suits));
+	}
 	ability_categories=["virus","program"];
 
 	characters=[];
@@ -146,7 +148,7 @@ function generateGame(){
 	files=[];
 	for(var i = 0; i < 20; ++i){
 		var file={
-			points:Math.floor(Math.random()*4),
+			points:getWord(words.files.points),
 			suit:Math.floor(Math.random()*3)
 		};
 		files.push(file);
@@ -234,6 +236,22 @@ function makePdf(){
 }
 
 
+
+function getWord(a){
+	return a[Math.floor(Math.random()*a.length)];
+}
+function getUniqueWord(a){
+	if(a.length <= 0){
+		throw "No words remaining.";
+	}
+	var word=a[Math.floor(Math.random()*a.length)];
+	for(var i = a.length; i >= 0; --i){
+		if(a[i] == word){
+			a.splice(i,1);
+		}
+	}
+	return word;
+}
 
 
 init();
