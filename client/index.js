@@ -139,7 +139,7 @@ function draw_ability(ability){
 	var lines=["//"];
 	while(words.length > 0){
 		w+=ctx.measureText(" "+words[0]).width;
-		if(w > ability_w/16*15){
+		if(w > ability_w-DPI/8){
 			y+=1;
 			w=ctx.measureText("//"+words[0]).width;
 			lines[y]="//";
