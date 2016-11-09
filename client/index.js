@@ -222,9 +222,10 @@ function generateGame(){
 	// generate abilities
 	abilities=[];
 	for(var i = 0; i < 30; ++i){
+		var a=getWord(words.abilities.base);
 		var ability={
-			category: ability_categories[Math.round(Math.random())],
-			description: "/* hacker(s) with most files: discard 3 files */"
+			category: a[0],
+			description: "/* "+expand(a[1])+" */"
 		};
 		abilities.push(ability);
 	}

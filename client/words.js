@@ -42,6 +42,35 @@ words={
 		]
 	},
 
+	abilities:{
+		base:[
+			[1, ["program", "{abilities.positive}"]],
+			[1, ["virus", "{abilities.negative}"]]
+		],
+		positive:[
+			[1, "trade {abilities.amountSmall} files"],
+			[1, "draw {abilities.amountSmall} files"],
+			[3, "move target up to {abilities.amountLarge} spaces"]
+		],
+		negative:[
+			[1, "discard {abilities.amountSmall} files"],
+			[2, "steal {abilities.amountSmall} files"],
+			[1, "destroy {abilities.amountSmall} files"]
+		],
+
+
+		amountSmall:[
+			[3, "1"],
+			[2, "2"],
+			[1, "3"]
+		],
+		amountLarge:[
+			[2, "2"],
+			[3, "3"],
+			[1, "4"]
+		]
+	},
+
 	implants:{
 		names:[
 			[1, "neo-keyboard"],
@@ -130,6 +159,12 @@ processWeights(words.files.points);
 
 processWeights(words.implants.names);
 processWeights(words.implants.description);
+
+processWeights(words.abilities.base);
+processWeights(words.abilities.positive);
+processWeights(words.abilities.negative);
+processWeights(words.abilities.amountSmall);
+processWeights(words.abilities.amountLarge);
 
 processWeights(words.characters.base);
 processWeights(words.characters.prefix);
