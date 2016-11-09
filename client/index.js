@@ -166,6 +166,13 @@ function generateGame(){
 				character.name=character.name.replace(new RegExp(r[0],"gi"),r[1]);
 			}
 		}if(Math.random() < 0.25){
+			// just make it a pain to read
+			var s=character.name;
+			character.name="";
+			for(var j=0; j < s.length; ++j){
+				character.name += (j%2==0) ? s[j].toUpperCase() : s[j].toLowerCase();
+			}
+		}if(Math.random() < 0.25){
 			// not the first
 			var separator=[".","-","_","~","\\","\/","|"," "];
 			character.name += getWord(separator)+Math.floor(Math.random()*9999).toString(10);
