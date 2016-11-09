@@ -346,4 +346,4 @@ function expand(str){
 }
 
 
-init();
+window.onload=init;
