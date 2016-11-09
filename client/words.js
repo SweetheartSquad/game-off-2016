@@ -1,27 +1,39 @@
 words={
 	files:{
 		suits:[
-			[1, "classified"],
-			[1, "restricted"],
-			[1, "top-secret"],
-			[1, "personnel"],
-			[1, "foreign intel"],
-			[1, "project plans"],
-			[1, "surveillance"],
-			[1, "encrypted"],
-			[1, "satellite imagery"],
-			[1, "evidence"],
-			[1, "private sector"],
-			[1, "meteorology"],
-			[1, "internal documents"],
-			[1, "redacted info"],
-			[1, "black ops."],
-			[1, "budget"],
-			[1, "payroll"],
-			[1, "emails"],
-			[1, "weapons orders"],
-			[1, "corporate"]
+			"{Ufiles.affiliates}\n{Ufiles.filetypes}"
 		],
+
+
+		filetypes:[
+			[1, "files"],
+			[1, "images"],
+			[1, "video"],
+			[1, "info"],
+			[1, "documents"],
+			[1, "plans"],
+			[1, "intel"],
+			[1, "orders"],
+			[1, "emails"]
+		],
+		affiliates:[
+			[1, "corporate"],
+			[1, "weapon"],
+			[1, "internal"],
+			[1, "payroll"],
+			[1, "budget"],
+			[1, "black ops."],
+			[1, "private"],
+			[1, "surveillance"],
+			[1, "project"],
+			[1, "encrypted"],
+			[1, "personnel"],
+			[1, "top-secret"],
+			[1, "restricted"],
+			[1, "classified"],
+			[1, "meteorology"]
+		],
+
 		points:[
 			[1,"0"],
 			[3,"1"],
@@ -64,12 +76,40 @@ words={
 	},
 
 	characters:{
+		base:[
+			[1, "{characters.prefix}{Ucharacters.names}{characters.suffix}"],
+			[1, "{characters.prefix}{characters.prefix}{Ucharacters.names}{characters.suffix}"],
+			[1, "{characters.prefix}{Ucharacters.names}{characters.suffix}{characters.suffix}"],
+			[1, "{characters.prefix}{characters.suffix}"]
+		],
+		prefix:[
+			[1, "hack"],
+			[1, "hacks"],
+			[1, "hacker"],
+			[1, "neo"],
+			[1, "tech"],
+			[1, "techno"],
+			[1, "uber"],
+			[1, "mega"],
+			[1, "leet"]
+		],
 		names:[
-			[1, "hacksperson"],
-			[1, "hacksman"],
-			[1, "hackswoman"],
-			[1, "hackssmith"]
-		]
+			[1, "person"],
+			[1, "man"],
+			[1, "woman"],
+			[1, "smith"]
+		],
+		suffix:[
+			[1, "hack"],
+			[1, "hacks"],
+			[1, "hacker"],
+			[1, "neo"],
+			[1, "tech"],
+			[1, "techno"],
+			[1, "uber"],
+			[1, "mega"],
+			[1, "leet"]
+		],
 	}
 };
 
@@ -84,10 +124,14 @@ function processWeights(a){
 };
 
 // probably a better way to do this but oh well
-processWeights(words.files.suits);
+processWeights(words.files.filetypes);
+processWeights(words.files.affiliates);
 processWeights(words.files.points);
 
 processWeights(words.implants.names);
 processWeights(words.implants.description);
 
+processWeights(words.characters.base);
+processWeights(words.characters.prefix);
 processWeights(words.characters.names);
+processWeights(words.characters.suffix);

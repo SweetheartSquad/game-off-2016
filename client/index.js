@@ -85,7 +85,7 @@ function draw_file(file){
 
 	ctx.font = "bold "+DPI/8+"px Calibri";
 
-	var a=suits[file.suit].split(" ");
+	var a=words.suits[file.suit].split("\n");
 	for(var i = 0; i < a.length; ++i){
 		ctx.fillText(a[i], file_w/2, file_h/8*7+(i-a.length/2)*DPI/8);
 	}
@@ -133,9 +133,9 @@ function main(){
 // procgen the varying elements of the game (TODO)
 function generateGame(){
 	// pick random suits
-	suits=[];
+	words.suits=[];
 	for(var i = 0; i < 3; ++i){
-		suits.push(getUniqueWord(words.files.suits));
+		words.suits.push(expand(getWord(words.files.suits)));
 	}
 
 
@@ -145,9 +145,38 @@ function generateGame(){
 	characters=[];
 	for(var i = 0; i < 4; ++i){
 		var character={
-			name:getUniqueWord(words.characters.names),
+			name:expand(getWord(words.characters.base)),
 			implants:[]
 		};
+
+		// process character name
+		if(Math.random() < 0.25){
+			// leet
+			var replaces=[
+				["e","3"],
+				["l","1"],
+				["t","7"],
+				["s","5"],
+				["a","4"],
+				["b","6"]
+			];
+			var n=Math.random()*replaces.length;
+			while(--n >= 0){
+				var r=getUniqueWord(replaces);
+				character.name=character.name.replace(new RegExp(r[0],"gi"),r[1]);
+			}
+		}if(Math.random() < 0.25){
+			// not the first
+			var separator=[".","-","_","~","\\","\/","|"," "];
+			character.name += getWord(separator)+Math.floor(Math.random()*9999).toString(10);
+		}if(Math.random() < 0.25){
+			// gamertag
+			var s="";
+			do{
+				s+=Math.random() < 0.5 ? "X" : "x";
+			}while(Math.random() < Math.max(0,1/s.length-0.1));
+			character.name=s+character.name+s.split("").reverse().join("");
+		}
 
 		// implants
 		// each character starts with a set "strength"
@@ -286,7 +315,20 @@ function getUniqueWord(a){
 }
 
 function expand(str){
-	return str.replace("{suits}",getWord(suits)); // this will probably need to be recursive regex instead of just a single replace on suits but fine for now
+	var r=new RegExp("\{(.*?)\}", "g");
+	return str.replace(r, function(a,b){
+		var unique=false;
+		if(b.substr(0,1) == "U"){
+			unique=true;
+			b=b.substr(1);
+		}
+		var s=b.split(".");
+		var w=words;
+		while(s.length > 0){
+			w=w[s.shift()];
+		}
+		return (unique ? getUniqueWord : getWord)(w); // may need to be recursive
+	});
 }
 
 
