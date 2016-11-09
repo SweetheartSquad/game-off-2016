@@ -334,7 +334,7 @@ function expand(str){
 		while(s.length > 0){
 			w=w[s.shift()];
 		}
-		return (unique ? getUniqueWord : getWord)(w); // may need to be recursive
+		return expand((unique ? getUniqueWord : getWord)(w)); // may need to be recursive
 	});
 }
 
