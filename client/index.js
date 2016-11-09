@@ -71,10 +71,38 @@ function draw_character(character){
 	ctx.textBaseline="inherit";
 	ctx.fillStyle = "#000000";
 	
-	ctx.font = "bold "+DPI/8+"px BerkeliumIIHGR";
-	ctx.fillText(character.name, DPI/8, character_h/4);
+	ctx.font = "bold "+DPI/10+"px BerkeliumIIHGR";
+	ctx.fillText(character.name, DPI/4, character_h/6);
+
+	var a=[];
 	for(var i = 0; i < character.implants.length; ++i){
-		ctx.fillText(character.implants[i], DPI/8*((i+1)%2+1), character_h-(character.implants.length-i)*DPI/8);
+
+		if(i%2==0){
+			a.push(character.implants[i].toUpperCase());
+		}else{
+			var words=character.implants[i].split(" ");
+			var w=0;
+			var y=0;
+			var line="";
+			while(words.length > 0){
+				w+=ctx.measureText(" "+words[0]).width;
+				if(w > character_w-DPI/5*2){
+					y+=1;
+					w=ctx.measureText(words[0]).width;
+					a.push(line);
+					line="";
+				}
+				line+=words[0]+" ";
+				words.splice(0,1);
+			}
+			if(line.length > 1){
+				a.push(line);
+			}
+			a.push("");
+		}
+	}
+	for(var i = 0; i < a.length; ++i){
+		ctx.fillText(a[i], DPI/5, character_h/2+(i+1)*DPI/11);
 	}
 }
 
@@ -200,6 +228,10 @@ function generateGame(){
 				s+=Math.random() < 0.5 ? "X" : "x";
 			}while(Math.random() < Math.max(0,1/s.length-0.1));
 			character.name=s+character.name+s.split("").reverse().join("");
+		}
+		while(character.name.length > 20){
+			// remove characters at random while over the limit
+			character.name=character.name.replace(character.name[Math.floor(Math.random()*character.name.length)],"");
 		}
 
 		// implants
