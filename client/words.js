@@ -48,7 +48,6 @@ words={
 			[1, ["virus", "{abilities.negative}"]]
 		],
 		positive:[
-			[1, "trade {abilities.amountSmall} files"],
 			[1, "{abilities.group} draw {abilities.amountSmall} files"],
 			[3, "move {abilities.group} up to {abilities.amountLarge} spaces"]
 		],
