@@ -15,6 +15,11 @@ images={
 	}
 };
 function init(){
+	msgDiv=document.createElement("div");
+	msgDiv.style="font-family: BerkeliumIIHGR;";
+	msgDiv.innerHTML="Generating...";
+	document.body.prepend(msgDiv);
+
 	// polyfill for resetTransform (not supported in IE)
 	CanvasRenderingContext2D.prototype.resetTransform=CanvasRenderingContext2D.resetTransform || function(){
 		this.setTransform(1, 0, 0, 1, 0, 0);
@@ -66,7 +71,7 @@ function draw_character(character){
 	ctx.textBaseline="inherit";
 	ctx.fillStyle = "#000000";
 	
-	ctx.font = "bold "+DPI/8+"px Calibri";
+	ctx.font = "bold "+DPI/8+"px BerkeliumIIHGR";
 	ctx.fillText(character.name, DPI/8, character_h/4);
 	for(var i = 0; i < character.implants.length; ++i){
 		ctx.fillText(character.implants[i], DPI/8*((i+1)%2+1), character_h-(character.implants.length-i)*DPI/8);
@@ -80,10 +85,10 @@ function draw_file(file){
 	ctx.textBaseline="middle";
 	ctx.fillStyle = "#000000";
 
-	ctx.font = "bold "+DPI/2+"px Calibri";
+	ctx.font = "bold "+DPI/2+"px BerkeliumIIHGR";
 	ctx.fillText(file.points, file_w/2, file_h/2);
 
-	ctx.font = "bold "+DPI/8+"px Calibri";
+	ctx.font = "bold "+DPI/8+"px BerkeliumIIHGR";
 
 	var a=words.suits[file.suit].split("\n");
 	for(var i = 0; i < a.length; ++i){
@@ -98,7 +103,7 @@ function draw_ability(ability){
 	ctx.textBaseline="middle";
 	ctx.fillStyle = "#000000";
 
-	ctx.font = "bold "+DPI/8+"px Calibri";
+	ctx.font = "bold "+DPI/8+"px BerkeliumIIHGR";
 
 	var words=ability.description.split(" ");
 	var w=0;
@@ -127,6 +132,7 @@ function main(){
 	generateGame();
 	drawGame();
 	makePdf();
+	msgDiv.innerHTML="Done!";
 }
 
 
