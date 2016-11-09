@@ -116,11 +116,11 @@ function draw_file(file){
 	ctx.font = "bold "+DPI/2+"px BerkeliumIIHGR";
 	ctx.fillText(file.points, file_w/2, file_h/2);
 
-	ctx.font = "bold "+DPI/8+"px BerkeliumIIHGR";
+	ctx.font = "bold "+DPI/10+"px BerkeliumIIHGR";
 
 	var a=words.suits[file.suit].split("\n");
 	for(var i = 0; i < a.length; ++i){
-		ctx.fillText(a[i], file_w/2, file_h/8*7+(i-a.length/2)*DPI/8);
+		ctx.fillText(a[i], file_w/2, file_h/5*4+(i-a.length/2)*DPI/11);
 	}
 }
 
