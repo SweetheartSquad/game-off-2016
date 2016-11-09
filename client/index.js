@@ -103,26 +103,26 @@ function draw_ability(ability){
 	ctx.textBaseline="middle";
 	ctx.fillStyle = "#000000";
 
-	ctx.font = "bold "+DPI/8+"px BerkeliumIIHGR";
+	ctx.font = "bold "+DPI/10+"px BerkeliumIIHGR";
 
 	var words=ability.description.split(" ");
-	var w=0;
+	var w=ctx.measureText("//").width;
 	var y=0;
-	var lines=[""];
+	var lines=["//"];
 	while(words.length > 0){
 		w+=ctx.measureText(" "+words[0]).width;
-		if(w > ability_w/8*7){
+		if(w > ability_w/16*15){
 			y+=1;
-			w=ctx.measureText(" * "+words[0]).width;
-			lines[y]=" * ";
+			w=ctx.measureText("//"+words[0]).width;
+			lines[y]="//";
 		}
 		lines[y]+=words[0]+" ";
 		words.splice(0,1);
 	}
 
-	ctx.fillText("$ "+ability.category, DPI/8, ability_h/2+(-lines.length/2+0.5)*DPI/8);
+	ctx.fillText("$$"+ability.category, DPI/16, ability_h/2+(-lines.length/2+0.5)*DPI/11);
 	for(var i = 0; i < lines.length; ++i){
-		ctx.fillText(lines[i], DPI/8, ability_h/2+(i-lines.length/2+1.5)*DPI/8);
+		ctx.fillText(lines[i], DPI/16, ability_h/2+(i-lines.length/2+1.5)*DPI/11);
 	}
 }
 
@@ -242,7 +242,7 @@ function generateGame(){
 		var a=getWord(words.abilities.base);
 		var ability={
 			category: a[0],
-			description: "/* "+expand(a[1])+" */"
+			description: expand(a[1])
 		};
 		abilities.push(ability);
 	}
