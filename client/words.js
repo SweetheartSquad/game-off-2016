@@ -49,13 +49,29 @@ words={
 		],
 		positive:[
 			[1, "trade {abilities.amountSmall} files"],
-			[1, "draw {abilities.amountSmall} files"],
-			[3, "move target up to {abilities.amountLarge} spaces"]
+			[1, "{abilities.group} draw {abilities.amountSmall} files"],
+			[3, "move {abilities.group} up to {abilities.amountLarge} spaces"]
 		],
 		negative:[
-			[1, "discard {abilities.amountSmall} files"],
-			[2, "steal {abilities.amountSmall} files"],
-			[1, "destroy {abilities.amountSmall} files"]
+			[1, "{abilities.group} discard {abilities.amountSmall} files"],
+			[1, "{abilities.group} discard highest file"],
+			[1, "{abilities.group} discard lowest file"],
+			[2, "target player steal {abilities.amountSmall} files"],
+			[1, "destroy {abilities.amountSmall} of target player's files"]
+		],
+		group:[
+			[5, "target player"],
+			[1, "2 target players"],
+			[1, "3 target players"],
+			[1, "everyone"],
+			[1, "player with most files"],
+			[1, "player with least files"],
+			[1, "player with most {suits}"],
+			[1, "player with least {suits}"],
+			[1, "everyone with {suits}"],
+			[1, "everyone without {suits}"],
+			[1, "everyone on the node"],
+			[1, "everyone not on the node"]
 		],
 
 
@@ -165,6 +181,7 @@ processWeights(words.abilities.positive);
 processWeights(words.abilities.negative);
 processWeights(words.abilities.amountSmall);
 processWeights(words.abilities.amountLarge);
+processWeights(words.abilities.group);
 
 processWeights(words.characters.base);
 processWeights(words.characters.prefix);
