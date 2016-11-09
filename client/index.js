@@ -126,6 +126,17 @@ function draw_ability(ability){
 	}
 }
 
+function draw_board(){
+	ctx.drawImage(images.board.img, 0, 0, board_w, board_h);
+
+	ctx.textAlign="center";
+	ctx.textBaseline="middle";
+	ctx.fillStyle = "#000000";
+
+	ctx.font = "bold "+DPI/8+"px BerkeliumIIHGR";
+	ctx.fillText("NODE V1.0", board_w/2, board_h/2);
+}
+
 
 
 function main(){
@@ -282,7 +293,7 @@ function drawGame(){
 
 	// board
 	ctx.translate(size.x/2,size.y/8*5);
-	ctx.drawImage(images.board.img, 0, 0, board_w, board_h);
+	draw_board();
 	ctx.resetTransform();
 }
 
