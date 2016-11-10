@@ -42,15 +42,9 @@ words={
 	},
 
 	abilities:{
-		base:[
-			[1, ["program", "{abilities.positive}"]],
-			[1, ["virus", "{abilities.negative}"]]
-		],
-		positive:[
+		description:[
 			[1, "{abilities.group} draw {abilities.amountSmall} files"],
-			[3, "move {abilities.group} up to {abilities.amountLarge} spaces"]
-		],
-		negative:[
+			[5, "move {abilities.group} up to {abilities.amountLarge} spaces"],
 			[1, "{abilities.group} discard {abilities.amountSmall} files"],
 			[1, "{abilities.group} discard highest file"],
 			[1, "{abilities.group} discard lowest file"],
@@ -174,9 +168,7 @@ processWeights(words.files.points);
 processWeights(words.implants.names);
 processWeights(words.implants.description);
 
-processWeights(words.abilities.base);
-processWeights(words.abilities.positive);
-processWeights(words.abilities.negative);
+processWeights(words.abilities.description);
 processWeights(words.abilities.amountSmall);
 processWeights(words.abilities.amountLarge);
 processWeights(words.abilities.group);

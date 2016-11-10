@@ -149,7 +149,7 @@ function draw_ability(ability){
 		words.splice(0,1);
 	}
 
-	ctx.fillText("$$"+ability.category, DPI/16, ability_h/2+(-lines.length/2+0.5)*DPI/11);
+	ctx.fillText("$$ABILITY", DPI/16, ability_h/2+(-lines.length/2+0.5)*DPI/11);
 	for(var i = 0; i < lines.length; ++i){
 		ctx.fillText(lines[i], DPI/16, ability_h/2+(i-lines.length/2+1.5)*DPI/11);
 	}
@@ -188,9 +188,6 @@ function generateGame(){
 	for(var i = 0; i < 3; ++i){
 		words.suits.push(expand(getWord(words.files.suits)));
 	}
-
-
-	ability_categories=["virus","program"];
 
 	// generate characters
 	characters=[];
@@ -277,10 +274,8 @@ function generateGame(){
 	// generate abilities
 	abilities=[];
 	for(var i = 0; i < 30; ++i){
-		var a=getWord(words.abilities.base);
 		var ability={
-			category: a[0],
-			description: expand(a[1])
+			description: expand(getWord(words.abilities.description))
 		};
 		abilities.push(ability);
 	}
