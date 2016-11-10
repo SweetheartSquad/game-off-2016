@@ -135,12 +135,12 @@ function draw_ability(ability){
 	ctx.font = "bold "+DPI/10+"px BerkeliumIIHGR";
 
 	var words=ability.description.split(" ");
-	var w=ctx.measureText("//").width;
 	var y=0;
 	var lines=["//"];
+	var w=ctx.measureText(lines[0]).width;
 	while(words.length > 0){
 		w+=ctx.measureText(" "+words[0]).width;
-		if(w > ability_w-DPI/8){
+		if(w > ability_w-DPI/16){
 			y+=1;
 			w=ctx.measureText("//"+words[0]).width;
 			lines[y]="//";

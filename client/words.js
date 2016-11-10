@@ -43,12 +43,15 @@ words={
 
 	abilities:{
 		description:[
-			[1, "{abilities.group} draw {abilities.amountSmall} files"],
-			[5, "move {abilities.group} up to {abilities.amountLarge} spaces"],
+			[3, "{abilities.group} draw 1 file"],
+			[1, "{abilities.group} draw {abilities.amountMid} files"],
+			[10, "move {abilities.group} up to {abilities.amountLarge} spaces"],
+			[3, "{abilities.group} discard 1 file"],
 			[1, "{abilities.group} discard {abilities.amountSmall} files"],
 			[1, "{abilities.group} discard highest file"],
 			[1, "{abilities.group} discard lowest file"],
-			[2, "steal {abilities.amountSmall} files from target player"],
+			[3, "steal 1 file from target player"],
+			[1, "steal {abilities.amountSmall} files from target player"],
 			[1, "destroy {abilities.amountSmall} of target player's files"]
 		],
 		group:[
@@ -69,6 +72,10 @@ words={
 
 		amountSmall:[
 			[3, "1"],
+			[2, "2"],
+			[1, "3"]
+		],
+		amountMid:[
 			[2, "2"],
 			[1, "3"]
 		],
@@ -170,6 +177,7 @@ processWeights(words.implants.description);
 
 processWeights(words.abilities.description);
 processWeights(words.abilities.amountSmall);
+processWeights(words.abilities.amountMid);
 processWeights(words.abilities.amountLarge);
 processWeights(words.abilities.group);
 
