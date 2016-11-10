@@ -55,7 +55,7 @@ words={
 			[1, "{abilities.group} discard {abilities.amountSmall} files"],
 			[1, "{abilities.group} discard highest file"],
 			[1, "{abilities.group} discard lowest file"],
-			[2, "target player steal {abilities.amountSmall} files"],
+			[2, "steal {abilities.amountSmall} files from target player"],
 			[1, "destroy {abilities.amountSmall} of target player's files"]
 		],
 		group:[
