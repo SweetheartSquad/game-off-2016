@@ -18,7 +18,7 @@ function init(){
 	msgDiv=document.createElement("div");
 	msgDiv.style="font-family: BerkeliumIIHGR;";
 	msgDiv.innerHTML="Generating...";
-	document.body.prepend(msgDiv);
+	document.body.appendChild(msgDiv);
 
 	// polyfill for resetTransform (not supported in IE)
 	CanvasRenderingContext2D.prototype.resetTransform=CanvasRenderingContext2D.resetTransform || function(){
@@ -39,17 +39,6 @@ function init(){
 	];
 	
 	images.loading = load.length;
-	for(var i = 0; i < load.length; ++i){
-		var toLoad=load[i];
-		var resource={
-			img:new Image()
-		};
-		images[toLoad[0]] = resource;
-		resource.img.setAttribute('crossOrigin', 'anonymous');
-		resource.img.addEventListener("load", images.onImageLoaded.bind(images), false);
-
-		resource.img.src = toLoad[1];
-	}
 
 	character_w=size.x/4;
 	character_h=size.y/4;
@@ -62,6 +51,18 @@ function init(){
 
 	board_w=size.x/2;
 	board_h=size.y/8*3;
+
+	for(var i = 0; i < load.length; ++i){
+		var toLoad=load[i];
+		var resource={
+			img:new Image()
+		};
+		images[toLoad[0]] = resource;
+		resource.img.setAttribute('crossOrigin', 'anonymous');
+		resource.img.addEventListener("load", images.onImageLoaded.bind(images), false);
+
+		resource.img.src = toLoad[1];
+	}
 }
 
 function draw_character(character){
