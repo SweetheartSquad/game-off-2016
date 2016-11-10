@@ -6,15 +6,14 @@ words={
 
 
 		filetypes:[
-			[1, "files"],
-			[1, "images"],
+			[1, "file"],
+			[1, "image"],
 			[1, "video"],
-			[1, "info"],
-			[1, "documents"],
-			[1, "plans"],
-			[1, "intel"],
-			[1, "orders"],
-			[1, "emails"]
+			[1, "briefing"],
+			[1, "document"],
+			[1, "plan"],
+			[1, "order"],
+			[1, "email"]
 		],
 		affiliates:[
 			[1, "corporate"],
@@ -63,12 +62,12 @@ words={
 			[1, "2 target players"],
 			[1, "3 target players"],
 			[1, "everyone"],
-			[1, "player with most files"],
-			[1, "player with least files"],
-			[1, "player with most {suits}"],
-			[1, "player with least {suits}"],
-			[1, "everyone with {suits}"],
-			[1, "everyone without {suits}"],
+			[1, "player(s) with the most files"],
+			[1, "player(s) with the least files"],
+			[1, "player(s) with the most {suits}s"],
+			[1, "player(s) with the least {suits}s"],
+			[1, "everyone with {suits}s"],
+			[1, "everyone without {suits}s"],
 			[1, "everyone on the node"],
 			[1, "everyone not on the node"]
 		],
@@ -105,17 +104,17 @@ words={
 			[1, "watched the matrix"]
 		],
 		description:[
-			[1, ["all {suits} worth double", 4]],
-			[1, ["all {suits} worth +1", 3]],
-			[1, ["all {suits} worth +2", 4]],
+			[1, ["{suits}s are worth double", 4]],
+			[1, ["{suits}s are worth +1", 3]],
+			[1, ["{suits}s are worth +2", 4]],
 			[1, ["unused abilities are worth +1", 1]],
 			[1, ["unused abilities are worth +2", 2]],
 			[1, ["+1 if you have at least 1 {suits}", 1]],
 			[1, ["+2 if you have at least 1 {suits}", 2]],
 			[1, ["+3 if you have at least 1 {suits}", 3]],
-			[1, ["+1 if you don't have any {suits}", 1]],
-			[1, ["+2 if you don't have any {suits}", 2]],
-			[1, ["+3 if you don't have any {suits}", 3]]
+			[1, ["+1 if you don't have any {suits}s", 1]],
+			[1, ["+2 if you don't have any {suits}s", 2]],
+			[1, ["+3 if you don't have any {suits}s", 3]]
 		]
 	},
 
