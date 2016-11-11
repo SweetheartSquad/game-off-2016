@@ -47,7 +47,7 @@ words={
 			[1, "{abilities.group} draw {abilities.amountMid} files"],
 			[10, "move {abilities.group} up to {abilities.amountLarge} spaces"],
 			[3, "{abilities.group} discard 1 file"],
-			[1, "{abilities.group} discard {abilities.amountSmall} files"],
+			[1, "{abilities.group} discard {abilities.amountMid} files"],
 			[1, "{abilities.group} discard highest file"],
 			[1, "{abilities.group} discard lowest file"],
 			[3, "steal 1 file from target player"],
