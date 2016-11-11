@@ -11,9 +11,80 @@
 </head>
 
 <body>
-    <canvas id="canvas"></canvas>
-    <img id="img-preview" src=""/>
-    <iframe id="pdf-preview" type="application/pdf" width="50%" height="50%" frameborder="0" src=""></iframe>
+
+    <section id="rules">
+        <h1>ProcJam/GitHub Game-off 2016 entry</h1>
+        <h2>hack the planet: the card game</h2>
+        <h3>by planet, I mean the node in the center of the game</h3>
+        <h4>(it's not the planet)</h4>
+        <h5>(the game's also more accurately a board game I guess)</h5>
+
+        <h1>How To Play</h1>
+        <h2>Setup</h2>
+        <ol>
+            <li>Generate, print, and cut up a game page.</li>
+            <li>Shuffle character cards and have each player choose one randomly. Look at your own, but keep these secret from other players until the end of the game.</li>
+            <li>Shuffle the file cards and place the deck facedown by the board.</li>
+            <li>Shuffle the ability cards and place the deck facedown by the board.</li>
+            <li>Place an avatar token for each player on the "start" positions on the board.</li>
+            <li>Decide who goes first.</li>
+        </ol>
+
+        <h2>Cards</h2>
+        <ul>
+            <li>Characters have a set of 1-3 implants/traits which affect their final score.</li>
+            <li>Files have a point value (0-3) and one of three filetypes. Once drawn, a file remains face-up for the rest of the game.</li>
+            <li>Abilities have text which explains what they do.</li>
+        </ul>
+
+        <h2>Playing</h2>
+        <ul>
+            <li>Each player gets 2 actions per turn.
+            <li>
+                Actions:
+                <ul>
+                    <li>Move your avatar 1 space</li>
+                    <li>Draw an ability card facedown</li>
+                    <li>Use an ability card
+                    <li>If on the node, draw a file faceup</li>
+                </ul>
+            </li>
+            <li>Once a player has used both of their actions, the next player starts their turn.</li>
+            <li>When ability cards are used, they are taken out of the game (don't put them back in the ability deck).</li>
+        </ul>
+
+        <h2>Game Over</h2>
+        <ul>
+            <li>As soon as the last file is drawn, the game is over. Each player reveals their character card, and points are tallied. You may not use any remaining abilities.
+            <li>A player's points are calculated as the sum of all the files they hold, plus any bonuses/modifiers from their character card.
+            <li>
+                <h3>Ties</h3>
+                <ul>
+                    <li>If two or more players are tied for first place, continue the game by drawing/playing abilities until the tie is broken.
+                </ul>
+            </li>
+        </ul>
+        
+        <h2>Misc.</h2>
+        <ul>
+            <li>You can move forwards or backwards. For example: if a player uses the ability "target player moves up to 2 spaces", they could A) target themselves and move forwards, or B) target another player and move them backwards.</li>
+            <li>You can choose to do the same action twice on your turn. For example, you could draw two ability cards.</li>
+        </ul>
+
+        <h1>Libraries Used</h1>
+        <ul>
+            <li><a href="https://github.com/MrRio/jsPDF">jsPDF</a></li>
+        </ul> 
+    </section>
+    <section id="ui">
+        <button id="btnPng">Get PNG</button>
+        <button id="btnPdf">Get PDF</button>
+    </section>
+    <section id="main">
+        <canvas id="canvas"></canvas>
+        <img id="img-preview" src=""/>
+        <iframe id="pdf-preview" type="application/pdf" width="50%" height="50%" frameborder="0" src=""></iframe>
+    </section>
 
     <!-- CLIENT SCRIPTS -->
     <script src="client/words.js"></script>

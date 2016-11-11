@@ -38,6 +38,8 @@ html,body{
 	left:0;
 	right:0;
 	bottom:0;
+
+	font-family: BerkeliumIIHGR, Arial, sans-serif;
 }
 
 canvas,iframe,img{
