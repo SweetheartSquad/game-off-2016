@@ -15,10 +15,10 @@ images={
 	}
 };
 function init(){
-	msgDiv=document.createElement("div");
+	msgDiv=document.createElement("dd");
 	msgDiv.style="font-family: BerkeliumIIHGR;";
 	msgDiv.innerHTML="Generating...";
-	document.body.appendChild(msgDiv);
+	document.getElementById("status").appendChild(msgDiv);
 
 	// polyfill for resetTransform (not supported in IE)
 	CanvasRenderingContext2D.prototype.resetTransform=CanvasRenderingContext2D.resetTransform || function(){
@@ -176,7 +176,6 @@ function draw_board(){
 function main(){
 	generateGame();
 	drawGame();
-	makePdf();
 	msgDiv.innerHTML="Done!";
 }
 
@@ -331,27 +330,48 @@ function drawGame(){
 }
 
 // canvas -> PDF process
-function makePdf(){
-
+function makePng(){
 	// convert canvas to image
-	var dataURL = canvas.toDataURL('image/png');
+	dataURL = canvas.toDataURL('image/png');
 
 	// update IMG preview in web page
 	previewImg.setAttribute("src", dataURL);
-
-
-	// copy image to PDF
-	var doc = new jsPDF('portrait','in','letter');
-	doc.addImage(dataURL, "PNG", 0, 0, 8.5, 11);
-	
-	// update PDF preview in web page
-	var blobUri = doc.output('bloburi');
-	previewPdf.setAttribute("src", blobUri);
-	
-	// download PDF
-	//doc.save('test.pdf');
 }
 
+function makePdf(){
+	// copy image to PDF
+	pdfDocument = new jsPDF('portrait','in','letter');
+	pdfDocument.addImage(dataURL, "PNG", 0, 0, 8.5, 11);
+}
+
+
+
+function printRules(){
+	// snippet adapted from http://stackoverflow.com/a/2255438
+	var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+    mywindow.document.write('<link rel="stylesheet" type="text/css" href="assets/style.css"/>');
+    mywindow.document.write('</head><body>')
+    mywindow.document.write(document.getElementById("rules").innerHTML);
+    mywindow.document.write('</body></html>');
+    mywindow.document.close(); // necessary for IE >= 10
+    mywindow.focus(); // necessary for IE >= 10*/
+
+    setTimeout(function(){
+	    mywindow.print();
+	    mywindow.close();
+    }, 100);
+}
+
+function printPng(){
+	makePng();
+	window.open(dataURL,'Image','width='+size.x+',height='+size.y+',resizable=1');
+}
+function printPdf(){
+	makePng();
+	makePdf();
+	pdfDocument.save('test.pdf');
+}
 
 // returns a random element in an array
 function getWord(a){

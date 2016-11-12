@@ -1,8 +1,4 @@
 # ProcJam/GitHub Game-off 2016 entry #
-## hack the planet: the card game ##
-### by planet, I mean the node in the center of the game ###
-#### (it's not the planet) ####
-##### (the game's also more accurately a board game I guess) #####
 
 # How To Play #
 ## Setup ##

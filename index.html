@@ -12,13 +12,17 @@
 
 <body>
 
+    <section id="ui">
+        <dl id="status">
+            <dt>Status:</dt>
+        </dl>
+        <button id="btnRules" onclick="printRules();">Save Rules</button>
+        <button id="btnPng"   onclick="printPng();">Save Game PNG</button>
+        <button id="btnPdf"   onclick="printPdf();">Save Game PDF</button>
+    </section>
     <section id="rules">
         <h1>ProcJam/GitHub Game-off 2016 entry</h1>
-        <h2>hack the planet: the card game</h2>
-        <h3>by planet, I mean the node in the center of the game</h3>
-        <h4>(it's not the planet)</h4>
-        <h5>(the game's also more accurately a board game I guess)</h5>
-
+        
         <h1>How To Play</h1>
         <h2>Setup</h2>
         <ol>
@@ -75,10 +79,6 @@
         <ul>
             <li><a href="https://github.com/MrRio/jsPDF">jsPDF</a></li>
         </ul> 
-    </section>
-    <section id="ui">
-        <button id="btnPng">Get PNG</button>
-        <button id="btnPdf">Get PDF</button>
     </section>
     <section id="main">
         <canvas id="canvas"></canvas>
