@@ -369,8 +369,12 @@ function printPng(){
 }
 function printPdf(){
 	makePng();
-	makePdf();
-    	window.open(URL.createObjectURL(pdfDocument.output("blob")));
+	try{
+		makePdf();
+		window.open(URL.createObjectURL(pdfDocument.output("blob")));
+	}catch(e){
+		alert("Sorry! Something went wrong. jsPDF probably doesn't work with your browser, you'll have to print the PNG version if you want to play.\n\nError message:\n"+e.toString());
+	}
 }
 
 // returns a random element in an array
