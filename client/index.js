@@ -370,7 +370,7 @@ function printPng(){
 function printPdf(){
 	makePng();
 	makePdf();
-	pdfDocument.save('test.pdf');
+    	window.open(URL.createObjectURL(pdfDocument.output("blob")));
 }
 
 // returns a random element in an array
