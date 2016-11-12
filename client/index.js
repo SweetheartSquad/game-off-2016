@@ -176,7 +176,25 @@ function draw_board(){
 function main(){
 	generateGame();
 	drawGame();
-	msgDiv.innerHTML="Done!";
+	setTimeout(function(){
+
+		msgDiv.innerHTML="Generated, converting to PNG...";
+		document.getElementById("btnRefresh").disabled=false;
+		setTimeout(function(){
+			makePng();
+			document.getElementById("btnPng").disabled=false;
+			msgDiv.innerHTML="Generated, converting to PDF...";
+			setTimeout(function(){
+				try{
+					makePdf();
+					document.getElementById("btnPdf").disabled=false;
+					msgDiv.innerHTML="Done!";
+				}catch(e){
+					msgDiv.innerHTML="Sorry, PDF conversion failed! You'll have to use the PNG to play.";
+				}
+			},100);
+		},100);
+	},100);
 }
 
 
@@ -352,6 +370,7 @@ function printRules(){
     mywindow.document.write('<html><head><title>' + document.title  + '</title>');
     mywindow.document.write('<link rel="stylesheet" type="text/css" href="assets/style.css"/>');
     mywindow.document.write('</head><body>')
+    mywindow.document.write(document.getElementById("description").innerHTML);
     mywindow.document.write(document.getElementById("rules").innerHTML);
     mywindow.document.write('</body></html>');
     mywindow.document.close(); // necessary for IE >= 10
@@ -364,13 +383,10 @@ function printRules(){
 }
 
 function printPng(){
-	makePng();
 	window.open(dataURL,'Image','width='+size.x+',height='+size.y+',resizable=1');
 }
 function printPdf(){
-	makePng();
 	try{
-		makePdf();
 		window.open(URL.createObjectURL(pdfDocument.output("blob")));
 	}catch(e){
 		alert("Sorry! Something went wrong. jsPDF probably doesn't work with your browser, you'll have to print the PNG version if you want to play.\n\nError message:\n"+e.toString());
