@@ -50,6 +50,7 @@ words={
 			[1, "{abilities.group} discard {abilities.amountMid} files"],
 			[1, "{abilities.group} discard highest file"],
 			[1, "{abilities.group} discard lowest file"],
+			[1, "everyone discard {abilities.amountMid} {suits}s"],
 			[3, "steal 1 file from target player"],
 			[1, "steal {abilities.amountSmall} files from target player"],
 			[1, "destroy {abilities.amountSmall} of target player's files"]
