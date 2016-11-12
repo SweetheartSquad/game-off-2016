@@ -362,32 +362,54 @@ function makePdf(){
 	pdfDocument.addImage(dataURL, "PNG", 0, 0, 8.5, 11);
 }
 
+function printWindow(w){
+	var done=function(){
+		w.close();
+	};
 
+	w.document.close();
+	w.focus();
+	w.onafterprint=done;
+	w.addEventListener("message",function(event){
+		console.log(event.origin, window.location.href);
+		console.log(event.source);
+		console.log(window);
+		console.log(event.data);
+		if(window.location.href.indexOf(event.origin || event.originalEvent.origin) === 0
+			&& event.source === window
+			&& event.data == "print"){
+			setTimeout(function(){
+				w.print();
+			},100);
+		}
+	});
+	w.postMessage("print",window.location.href);
+}
 
 function printRules(){
 	// snippet adapted from http://stackoverflow.com/a/2255438
-	var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+	var mywindow = window.open('', 'print', 'height=400,width=600');
     mywindow.document.write('<html><head><title>' + document.title  + '</title>');
     mywindow.document.write('<link rel="stylesheet" type="text/css" href="assets/style.css"/>');
     mywindow.document.write('</head><body>')
     mywindow.document.write(document.getElementById("description").innerHTML);
     mywindow.document.write(document.getElementById("rules").innerHTML);
     mywindow.document.write('</body></html>');
-    mywindow.document.close(); // necessary for IE >= 10
-    mywindow.focus(); // necessary for IE >= 10*/
 
-    setTimeout(function(){
-	    mywindow.print();
-	    mywindow.close();
-    }, 100);
+    printWindow(mywindow);
 }
 
 function printPng(){
-	window.open(dataURL,'Image','width='+size.x+',height='+size.y+',resizable=1');
+	var mywindow=window.open('','print','width='+size.x+',height='+size.y);
+    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+    mywindow.document.write('</head><body>')
+	mywindow.document.write('<img src="'+dataURL+'"" width="'+size.x+'" height="'+size.y+'"/>');
+    mywindow.document.write('</body></html>');
+	printWindow(mywindow);
 }
 function printPdf(){
 	try{
-		window.open(URL.createObjectURL(pdfDocument.output("blob")));
+    	printWindow(window.open(URL.createObjectURL(pdfDocument.output("blob"))));
 	}catch(e){
 		alert("Sorry! Something went wrong. jsPDF probably doesn't work with your browser, you'll have to print the PNG version if you want to play.\n\nError message:\n"+e.toString());
 	}

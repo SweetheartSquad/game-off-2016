@@ -42,10 +42,6 @@ html,body{
 	font-family: BerkeliumIIHGR, Arial, sans-serif;
 }
 
-canvas,iframe,img{
-	max-width:30%;
-}
-
 #main{
 	display:none;
 }
