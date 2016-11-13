@@ -163,7 +163,7 @@ function draw_board(){
 	ctx.fillStyle = "#000000";
 
 	ctx.font = "bold "+DPI/8+"px BerkeliumIIHGR";
-	ctx.fillText("NODE V1.0", board_w/2, board_h/2);
+	ctx.fillText("SERVER", board_w/2, board_h/2);
 
 	ctx.fillText("1", board_w*0.105, board_h*0.1075);
 	ctx.fillText("2", board_w-board_w*0.105, board_h*0.1075);
