@@ -3,6 +3,8 @@ a single-page cyberpunk board game for 2-4 players
 
 made for [PROCJAM 2016](https://itch.io/jam/procjam) and [GitHub Game-off 2016](https://github.com/github/game-off-2016)
 
+Live builds of the game can be found [on itch.io](https://sweetheartsquad.itch.io/server-hack) and on [GitHub pages](https://sweetheartsquad.github.io/game-off-2016/) (note that the GitHub version does not generate PDFs).
+
 # How To Play #
 ## Setup ##
 - Print a gameset.
