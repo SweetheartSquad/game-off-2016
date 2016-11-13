@@ -122,39 +122,61 @@ words={
 
 	characters:{
 		base:[
-			[1, "{characters.prefix}{Ucharacters.names}{characters.suffix}"],
-			[1, "{characters.prefix}{characters.prefix}{Ucharacters.names}{characters.suffix}"],
-			[1, "{characters.prefix}{Ucharacters.names}{characters.suffix}{characters.suffix}"],
-			[1, "{characters.prefix}{characters.suffix}"]
+			[1, "{characters.prefix}{characters.suffix}"],
+			[1, "{characters.suffix}Of{characters.prefix}"],
+			[1, "{characters.prefix}{characters.prefix}{characters.suffix}"],
+			[1, "{characters.suffix}{characters.suffix}"],
+			[1, "{characters.prefix}{characters.prefix}"],
+			[1, "{characters.prefix}{characters.suffix}{characters.suffix}"]
+
 		],
-		prefix:[
-			[1, "hack"],
-			[1, "hacks"],
-			[1, "hacker"],
-			[1, "neo"],
-			[1, "tech"],
-			[1, "techno"],
-			[1, "uber"],
-			[1, "mega"],
-			[1, "leet"]
+		prefix: [
+			[1, "Ego"],
+			[1, "Katana"],
+			[1, "Sword"],
+			[1, "Video"],
+			[1, "Game"],
+			[1, "Life"],
+			[1, "Death"],
+			[1, "Skull"],
+			[1, "Shadow"],
+			[1, "Tech"],
+			[1, "Net"],
+			[1, "Mega"],
+			[1, "Neo"],
+			[1, "Matrix"],
+			[1, "Download"],
+			[1, "Torrent"],
+			[1, "Code"],
+			[1, "Masked"],
+			[1, "Unknown"],
+			[1, "Secret"],
+			[1, "Anon"]
 		],
-		names:[
-			[1, "person"],
-			[1, "man"],
-			[1, "woman"],
-			[1, "smith"]
-		],
-		suffix:[
-			[1, "hack"],
-			[1, "hacks"],
-			[1, "hacker"],
-			[1, "neo"],
-			[1, "tech"],
-			[1, "techno"],
-			[1, "uber"],
-			[1, "mega"],
-			[1, "leet"]
-		],
+		suffix: [
+			[1, "Hacker"],
+			[1, "Killer"],
+			[1, "Destroyer"],
+			[1, "Wrangler"],
+			[1, "Splicer"],
+			[1, "Autocrat"],
+			[1, "Baron"],
+			[1, "King"],
+			[1, "Queen"],
+			[1, "Burglar"],
+			[1, "Hero"],
+			[1, "Rogue"],
+			[1, "Soldier"],
+			[1, "Warrior"],
+			[1, "Mage"],
+			[1, "Whiz"],
+			[1, "Agent"],
+			[1, "Man"],
+			[1, "Woman"],
+			[1, "Being"],
+			[1, "Cyborg"]
+		]
+
 	}
 };
 
@@ -184,5 +206,4 @@ processWeights(words.abilities.group);
 
 processWeights(words.characters.base);
 processWeights(words.characters.prefix);
-processWeights(words.characters.names);
 processWeights(words.characters.suffix);
