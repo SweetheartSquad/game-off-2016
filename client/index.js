@@ -445,7 +445,7 @@ function printWindow(w){
 function printRules(){
 	// snippet adapted from http://stackoverflow.com/a/2255438
 	var mywindow = window.open('', 'print', 'height=400,width=600');
-    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+    mywindow.document.write('<html><head><title>' + document.title  + ' - rules</title>');
     mywindow.document.write('<link rel="stylesheet" type="text/css" href="assets/style.css"/>');
     mywindow.document.write('</head><body>')
     mywindow.document.write(document.getElementById("description").innerHTML);
@@ -457,7 +457,7 @@ function printRules(){
 
 function printPng(){
 	var mywindow=window.open('','print','width='+size.x+',height='+size.y);
-    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+    mywindow.document.write('<html><head><title>' + document.title  + ' - gameset</title>');
     mywindow.document.write('</head><body>')
 	mywindow.document.write('<img src="'+dataURL+'"" width="'+size.x+'" height="'+size.y+'"/>');
     mywindow.document.write('</body></html>');
