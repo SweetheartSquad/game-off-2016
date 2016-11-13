@@ -25,6 +25,7 @@
         <button id="btnPdf"     onclick="printPdf();" disabled>Print Gameset (PDF)</button>
         <button id="btnRefresh" onclick="window.location.reload();" disabled>Generate New Gameset</button>
     </section>
+    <hr/>
     <section id="rules">
         <h1>How To Play</h1>
         <h2>Setup</h2>
@@ -65,12 +66,11 @@
         <ul>
             <li>As soon as the last file is drawn, the game is over. Each player reveals their character card, and points are tallied. You may not use any remaining abilities.
             <li>A player's points are calculated as the sum of all the files they hold, plus any bonuses/modifiers from their character card.
-            <li>
-                <h3>Ties</h3>
-                <ul>
-                    <li>If two or more players are tied for first place, continue the game by drawing/playing abilities until the tie is broken.
-                </ul>
-            </li>
+        </ul>
+
+        <h2>Ties</h2>
+        <ul>
+            <li>If two or more players are tied for first place, continue the game by drawing/playing abilities until the tie is broken.
         </ul>
         
         <h2>Misc.</h2>
@@ -79,30 +79,46 @@
             <li>You can choose to do the same action twice on your turn. For example, you could draw two program cards.</li>
         </ul>
 
+    </section>
+
+    <hr/>
+
+    <section id="details">
+        <h1>Gameset Details</h1>
+        <p>A full gameset is fitted to a single letter-sized piece of paper, which needs to be cut into individual pieces.</p>
+        <table>
+            <tr>
+                <td><img src="example-gameset.png" alt="example gameset" title="example gameset" width="319" height="413"/></td>
+                <td>
+                    <p>When finished cutting, you should have:
+                    <ul>
+                        <li>4 character cards</li>
+                        <li>20 file cards</li>
+                        <li>30 program cards</li>
+                        <li>1 game board</li>
+                        <li>4 avatar tokens</li>
+                    </ul>
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <p>The avatar tokens on the corners of the game board are simple papercrafts, and can be assembled like so:</p>
+        <img src="avatar-instructions.png" alt="instructions on how to assemble avatar tokens" title="instructions on how to assemble avatar tokens" width="500" height="200"/>
+        <p>If you prefer, you can cut out and use the center squares alone to save some setup time.</p>
+        <p>An example of an entire assembled gameset can be seen below:</p>
+        
+        <p><img src="example-assembled-gameset.png" alt="example assembled gameset" title="example assembled gameset" width="500" height="200"/></p>
+        
+        <hr/>
+
         <h1>Resources Used</h1>
         <ul>
             <li><a href="https://github.com/MrRio/jsPDF" target="_blank">jsPDF</a></li>
             <li><a href="photo credits.txt" target="_blank">Wikimedia Commons stock photos</a></li>
         </ul> 
-    </section>
-    <section id="details">
-        <h1>Gameset Details</h1>
-        <p>A full gameset is fitted to a single letter-sized piece of paper, which needs to be cut into individual pieces.</p>
-        <img src="example-gameset.png" alt="example gameset" title="example gameset" width="319" height="413"/>
-        <p>When finished cutting, you should have:
-            <ul>
-                <li>4 character cards</li>
-                <li>20 file cards</li>
-                <li>30 program cards</li>
-                <li>1 game board</li>
-                <li>4 avatar tokens</li>
-            </ul>
-        </p>
-        <p>The avatar tokens on the corners of the game board are simple papercrafts, and can be assembled like so:</p>
-        <img src="avatar-instructions.png" alt="instructions on how to assemble avatar tokens" title="instructions on how to assemble avatar tokens" width="500" height="200"/>
-        <p>If you prefer, you can cut out and use the center squares alone to save some setup time.</p>
-        <p>An example of an entire assembled gameset can be seen below:</p>
-        <img src="example-assembled-gameset.png" alt="example assembled gameset" title="example assembled gameset" width="500" height="200"/>
+
+        <br/><br/><br/>
+
     </section>
     <section id="main">
         <canvas id="canvas"></canvas>

@@ -89,8 +89,7 @@ words={
 
 	implants:{
 		names:[
-			[1, "{Uimplants.prefix}{Uimplants.suffix}"],
-			[1, "{Uimplants.prefix}{Uimplants.prefix}{Uimplants.suffix}"]
+			[1, "{Uimplants.prefix}{Uimplants.suffix}"]
 		],
 		prefix: [
 			[1, "utility "],
@@ -100,7 +99,6 @@ words={
 			[1, "overclocked "],
 			[1, "high-energy "],
 			[1, "radioactive "],
-			[1, "self-replicating "],
 			[1, "killer "],
 			[1, "secret "],
 			[1, "illegal "],
@@ -120,7 +118,6 @@ words={
 			[1, "chipdata"],
 			[1, "chipchip"],
 			[1, "neuromouse"],
-			[1, "neurotrackpad"],
 			[1, "neuronib"],
 			[1, "doodad"],
 			[1, "thingamabob"],

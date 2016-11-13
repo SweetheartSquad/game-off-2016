@@ -63,14 +63,16 @@ button{
 h1,h2,h3,h4,h5{
 	padding:0;
 	margin:0;
-	margin-top:0.5em;
+	margin-top:1.2em;
+	margin-bottom:0.8em;
+	text-align:center;
 }
 h1{
-	font-size:1.2em;
+	font-size:1.4em;
 	font-style: bold;
 }
 h2,h3,h4,h5{
-	font-size:1em;
+	font-size:1.2em;
 	font-style: bold;
 }
 ol,ul,p{
@@ -80,7 +82,16 @@ ol,ul,p{
 	padding-bottom:0;
 }
 
-#description, #ui{
+table {
+	width:100%;
+	padding:0.8em;
+}
+
+section {
+	padding-bottom:1.2em;
+}
+
+#description, #ui, #details{
 	text-align: center;
 }
 #description h1{
