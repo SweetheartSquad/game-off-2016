@@ -89,28 +89,27 @@ words={
 
 	implants:{
 		names:[
-			[1, "{implants.prefix}{implants.suffix}"],
-			[1, "{implants.prefix}{implants.prefix}{implants.suffix}"]
+			[1, "{Uimplants.prefix}{Uimplants.suffix}"],
+			[1, "{Uimplants.prefix}{Uimplants.prefix}{Uimplants.suffix}"]
 		],
 		prefix: [
-			[1, "savage"],
-			[1, "utility"],
-			[1, "techno"],
-			[1, "neo"],
-			[1, "voice-activated"],
-			[1, "overclocked"],
-			[1, "high-energy"],
-			[1, "radioactive"],
-			[1, "self-replicating"],
-			[1, "killer"],
-			[1, "secret"],
-			[1, "illegal"],
-			[1, "weapons-grade"],
-			[1, "neutron"],
-			[1, "supercharged"],
-			[1, "heavy"],
-			[1, "light"],
-			[1, "midrange"]
+			[1, "utility "],
+			[1, "techno-"],
+			[1, "neo-"],
+			[1, "voice-activated "],
+			[1, "overclocked "],
+			[1, "high-energy "],
+			[1, "radioactive "],
+			[1, "self-replicating "],
+			[1, "killer "],
+			[1, "secret "],
+			[1, "illegal "],
+			[1, "weapons-grade "],
+			[1, "neutron "],
+			[1, "supercharged "],
+			[1, "heavy "],
+			[1, "light "],
+			[1, "midrange "]
 		],
 		suffix: [
 			[1, "neo-keyboard"],
