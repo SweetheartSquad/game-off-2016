@@ -37,6 +37,13 @@ function init(){
 		["ability","assets/img/ability.png"],
 		["board","assets/img/board.png"]
 	];
+
+	num_portraits=7;
+	words.portraits=[];
+	for(var i = 1; i <= num_portraits; ++i){
+		words.portraits.push(i);
+		load.push(["portrait_"+i.toString(10),"assets/img/portrait_"+i.toString(10)+".png"]);
+	}
 	
 	images.loading = load.length;
 
@@ -66,15 +73,63 @@ function init(){
 }
 
 function draw_character(character){
+
+	// draw character portrait
+	var portrait_x=54;
+	var portrait_y=105;
+	var portrait_w=530;
+	var portrait_h=307;
+
+	var rh=character_h/828;
+	var rw=character_w/640;
+
+	var tw=(Math.random()*0.95+0.05)*DPI;
+	var th=(Math.random()*0.95+0.05)*DPI;
+
+	var corruptChance=Math.random()*0.25;
+	var corrupt=function(){
+		return (Math.random()-Math.random())*num_portraits;
+	};
+	var distort=function(){
+		return Math.random()*10-Math.random()*10;
+	};
+	var breakup=function(){
+		return Math.random()<0.25 ? Math.random()*10-Math.random()*10 : 0;
+	};
+
+	ctx.fillStyle="#000000";
+	ctx.fillRect(portrait_x*rw,portrait_y*rh, portrait_w*rw, portrait_h*rh);
+	for(var x=0; x < portrait_w+tw; x+=tw){
+		for(var y=0; y < portrait_h+th; y+=th){
+			var w=Math.min(tw, portrait_w-(x+tw));
+			var h=Math.min(th, portrait_h-(y+th));
+			var portrait_corrupt=character.portrait;
+			if(Math.random() < corruptChance){
+				portrait_corrupt=Math.ceil(Math.min(Math.max(1, portrait_corrupt+corrupt()), num_portraits-4).toString(10));
+			}
+			ctx.drawImage(images["portrait_"+portrait_corrupt].img, x+distort(), y+distort(), w+distort(), h+distort(), rw*(portrait_x+x+breakup()), rh*(portrait_y+y+breakup()), rw*w, rh*h);
+		}		
+	}
+
+	// draw character card frame
 	ctx.drawImage(images.character.img, 0, 0, character_w, character_h);
 
+	ctx.font = "bold "+DPI/10+"px BerkeliumIIHGR";
 	ctx.textAlign="left";
 	ctx.textBaseline="inherit";
-	ctx.fillStyle = "#000000";
-	
-	ctx.font = "bold "+DPI/10+"px BerkeliumIIHGR";
+
+	// name bg
+	ctx.fillStyle="#000000";
+	ctx.fillRect(portrait_x*rw,portrait_y*rh, Math.min(ctx.measureText(character.name).width+DPI/8, portrait_w*rw), DPI/6);
+
+	// name
+	ctx.fillStyle="#FFFFFF";
 	ctx.fillText(character.name, DPI/4, character_h/6);
 
+
+	// implants
+	ctx.font = ""+DPI/10+"px BerkeliumIIHGR";
+	ctx.fillStyle="#000000";
 	var a=[];
 	for(var i = 0; i < character.implants.length; ++i){
 
@@ -211,6 +266,7 @@ function generateGame(){
 	for(var i = 0; i < 4; ++i){
 		var character={
 			name:expand(getWord(words.characters.base)),
+			portrait:getUniqueWord(words.portraits),
 			implants:[]
 		};
 
