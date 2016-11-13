@@ -48,6 +48,10 @@ html,body{
 	-webkit-font-smoothing : none;
 }
 
+a{
+	color:#999999;
+}
+
 button{
 	cursor:pointer;
 }
