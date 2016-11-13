@@ -5,7 +5,8 @@ made for [PROCJAM 2016](https://itch.io/jam/procjam) and [GitHub Game-off 2016](
 
 # How To Play #
 ## Setup ##
-- Generate, print, and cut up a game page.
+- Print a gameset.
+- Cut the gameset into individual pieces.
 - Shuffle character cards and have each player choose one randomly. Look at your own, but keep these secret from other players until the end of the game.
 - Shuffle the file cards and place the deck facedown by the board.
 - Shuffle the program cards and place the deck facedown by the board.
@@ -25,7 +26,7 @@ made for [PROCJAM 2016](https://itch.io/jam/procjam) and [GitHub Game-off 2016](
  - Use an program card
  - If on the node, draw a file faceup
 - Once a player has used both of their actions, the next player starts their turn.
-- When program cards are used, they are taken out of the game (don't put them back in the program deck).
+- When program cards are used, place them in a separate pile. Once every program card has been drawn, re-shuffle this pile and use it as the new program deck.
 
 ## Game Over ##
 - As soon as the last file is drawn, the game is over. Each player reveals their character card, and points are tallied. You may not use any remaining abilities.
@@ -36,8 +37,6 @@ made for [PROCJAM 2016](https://itch.io/jam/procjam) and [GitHub Game-off 2016](
 ## Misc. ##
 - You can move forwards or backwards. For example: if a player uses the program "target player moves up to 2 spaces", they could A) target themselves and move forwards, or B) target another player and move them backwards.
 - You can choose to do the same action twice on your turn. For example, you could draw two program cards.
-
-- maybe reshuffle cards in
 
 # Libraries Used #
 [jsPDF](https://github.com/MrRio/jsPDF)
