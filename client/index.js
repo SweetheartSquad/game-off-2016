@@ -326,7 +326,7 @@ function generateGame(){
 			if(strength==4 && implant[1]<=1){
 				continue;
 			}
-			character.implants.push(getUniqueWord(words.implants.names));
+			character.implants.push(getWord(words.implants.names));
 			character.implants.push(expand(implant[0]));
 			strength-=implant[1];
 		}
