@@ -132,7 +132,7 @@ function draw_ability(ability){
 	ctx.textBaseline="middle";
 	ctx.fillStyle = "#000000";
 
-	ctx.font = "bold "+DPI/10+"px BerkeliumIIHGR";
+	ctx.font = DPI/10+"px BerkeliumIIHGR";
 
 	var words=ability.description.split(" ");
 	var y=0;
@@ -149,7 +149,7 @@ function draw_ability(ability){
 		words.splice(0,1);
 	}
 
-	ctx.fillText("$$ABILITY", DPI/16, ability_h/2+(-lines.length/2+0.5)*DPI/11);
+	ctx.fillText("$$PROGRAM", DPI/16, ability_h/2+(-lines.length/2+0.5)*DPI/11);
 	for(var i = 0; i < lines.length; ++i){
 		ctx.fillText(lines[i], DPI/16, ability_h/2+(i-lines.length/2+1.5)*DPI/11);
 	}
