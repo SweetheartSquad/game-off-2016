@@ -79,3 +79,10 @@ ol,ul,p{
 	padding-top:0;
 	padding-bottom:0;
 }
+
+#description, #ui{
+	text-align: center;
+}
+#description h1{
+	font-size:2em;
+}
