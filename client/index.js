@@ -28,7 +28,6 @@ function init(){
 
 	canvas = document.getElementById("canvas");
 	previewImg = document.getElementById("img-preview");
-	previewPdf = document.getElementById("pdf-preview");
 
 	load=[
 		["icon","assets/icon.png"],
