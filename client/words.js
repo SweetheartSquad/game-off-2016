@@ -89,6 +89,30 @@ words={
 
 	implants:{
 		names:[
+			[1, "{implants.prefix}{implants.suffix}"],
+			[1, "{implants.prefix}{implants.prefix}{implants.suffix}"]
+		],
+		prefix: [
+			[1, "savage"],
+			[1, "utility"],
+			[1, "techno"],
+			[1, "neo"],
+			[1, "voice-activated"],
+			[1, "overclocked"],
+			[1, "high-energy"],
+			[1, "radioactive"],
+			[1, "self-replicating"],
+			[1, "killer"],
+			[1, "secret"],
+			[1, "illegal"],
+			[1, "weapons-grade"],
+			[1, "neutron"],
+			[1, "supercharged"],
+			[1, "heavy"],
+			[1, "light"],
+			[1, "midrange"]
+		],
+		suffix: [
 			[1, "neo-keyboard"],
 			[1, "superphone"],
 			[1, "datalyzer"],
@@ -101,9 +125,9 @@ words={
 			[1, "neuronib"],
 			[1, "doodad"],
 			[1, "thingamabob"],
-			[1, "wifi module"],
-			[1, "internet access"],
-			[1, "watched the matrix"]
+			[1, "module"],
+			[1, "bot"],
+			[1, "script"]
 		],
 		description:[
 			[1, ["{suits}s are worth double", 4]],
@@ -174,7 +198,9 @@ words={
 			[1, "Man"],
 			[1, "Woman"],
 			[1, "Being"],
-			[1, "Cyborg"]
+			[1, "Cyborg"],
+			[1, "God"],
+			[1, "Saint"]
 		]
 
 	}
@@ -196,6 +222,8 @@ processWeights(words.files.affiliates);
 processWeights(words.files.points);
 
 processWeights(words.implants.names);
+processWeights(words.implants.prefix);
+processWeights(words.implants.suffix);
 processWeights(words.implants.description);
 
 processWeights(words.abilities.description);
