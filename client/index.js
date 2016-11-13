@@ -37,7 +37,7 @@ function init(){
 		["board","assets/img/board.png"]
 	];
 
-	num_portraits=7;
+	num_portraits=30;
 	words.portraits=[];
 	for(var i = 1; i <= num_portraits; ++i){
 		words.portraits.push(i);
