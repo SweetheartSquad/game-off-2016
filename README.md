@@ -1,5 +1,5 @@
 # server.hack() #
-a cyberpunk board game for 2-4 players
+a single-page cyberpunk board game for 2-4 players
 
 made for [PROCJAM 2016](https://itch.io/jam/procjam) and [GitHub Game-off 2016](https://github.com/github/game-off-2016)
 
