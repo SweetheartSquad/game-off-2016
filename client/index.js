@@ -228,27 +228,33 @@ function draw_board(){
 
 
 function main(){
-	generateGame();
-	drawGame();
-	setTimeout(function(){
+	try{
+		generateGame();
+		drawGame();
 
-		msgDiv.innerHTML="Generated, converting to PNG...";
-		document.getElementById("btnRefresh").disabled=false;
 		setTimeout(function(){
-			makePng();
-			document.getElementById("btnPng").disabled=false;
-			msgDiv.innerHTML="Generated, converting to PDF...";
+
+			msgDiv.innerHTML="Generated, converting to PNG...";
+			document.getElementById("btnRefresh").disabled=false;
 			setTimeout(function(){
-				try{
-					makePdf();
-					document.getElementById("btnPdf").disabled=false;
-					msgDiv.innerHTML="Done!";
-				}catch(e){
-					msgDiv.innerHTML="Sorry, PDF conversion failed! You'll have to use the PNG to play.";
-				}
+				makePng();
+				document.getElementById("btnPng").disabled=false;
+				msgDiv.innerHTML="Generated, converting to PDF...";
+				setTimeout(function(){
+					try{
+						makePdf();
+						document.getElementById("btnPdf").disabled=false;
+						msgDiv.innerHTML="Done!";
+					}catch(e){
+						msgDiv.innerHTML="Sorry, PDF conversion failed! You'll have to use the PNG to play.";
+					}
+				},100);
 			},100);
 		},100);
-	},100);
+	}catch(exception){
+		msgDiv.innerHTML="Sorry, generation failed! You'll have to try with a different browser.";
+		console.log(exception);	
+	}
 }
 
 
