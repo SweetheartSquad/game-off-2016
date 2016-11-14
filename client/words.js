@@ -54,7 +54,7 @@ words={
 			[3, "steal 1 file from target player"],
 			[1, "steal {abilities.amountMid} files from target player"],
 			[1, "destroy {abilities.amountSmall} of target player's files"],
-			[1, "destroy {abilities.amountSmall} of target player's programs"],
+			[2, "destroy {abilities.amountLarge} of target player's programs"],
 			[1, "{abilities.group} draw {abilities.amountMid} programs"]
 		],
 		group:[
