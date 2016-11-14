@@ -52,8 +52,10 @@ words={
 			[1, "{abilities.group} discard lowest file"],
 			[1, "everyone discard {abilities.amountMid} {suits}s"],
 			[3, "steal 1 file from target player"],
-			[1, "steal {abilities.amountSmall} files from target player"],
-			[1, "destroy {abilities.amountSmall} of target player's files"]
+			[1, "steal {abilities.amountMid} files from target player"],
+			[1, "destroy {abilities.amountSmall} of target player's files"],
+			[1, "destroy {abilities.amountSmall} of target player's programs"],
+			[1, "{abilities.group} draw {abilities.amountMid} programs"]
 		],
 		group:[
 			[5, "target player"],
@@ -129,8 +131,7 @@ words={
 			[1, ["{suits}s are worth double", 4]],
 			[1, ["{suits}s are worth +1", 3]],
 			[1, ["{suits}s are worth +2", 4]],
-			[1, ["unused abilities are worth +1", 1]],
-			[1, ["unused abilities are worth +2", 2]],
+			[1, ["unused programs are worth +1", 3]],
 			[1, ["+1 if you have at least 1 {suits}", 1]],
 			[1, ["+2 if you have at least 1 {suits}", 2]],
 			[1, ["+3 if you have at least 1 {suits}", 3]],
