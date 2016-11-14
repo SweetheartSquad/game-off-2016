@@ -38,6 +38,7 @@ Finish the game with the highest number of File points.
 ## Game Over ##
 - As soon as the last File is drawn, the game is over. Each player reveals their Character card, and points are tallied. You may not use any remaining Programs.
 - A player's points are calculated as the sum of all the Files they hold, plus any bonuses/modifiers from their Character card.
+
 ### Ties ###
 - If two or more players are tied for first place, continue the game by drawing/playing Programs until the tie is broken.
 
