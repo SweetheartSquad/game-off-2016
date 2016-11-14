@@ -43,7 +43,6 @@ words={
 
 	abilities:{
 		description:[
-			[3, "{abilities.group} draw 1 file"],
 			[1, "{abilities.group} draw {abilities.amountMid} files"],
 			[10, "move {abilities.group} up to {abilities.amountLarge} spaces"],
 			[3, "{abilities.group} discard 1 file"],
