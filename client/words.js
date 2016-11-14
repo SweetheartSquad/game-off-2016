@@ -66,8 +66,8 @@ words={
 			[1, "player(s) with the least {suits}s"],
 			[1, "everyone with {suits}s"],
 			[1, "everyone without {suits}s"],
-			[1, "everyone on the node"],
-			[1, "everyone not on the node"]
+			[1, "everyone on the server"],
+			[1, "everyone not on the server"]
 		],
 
 
