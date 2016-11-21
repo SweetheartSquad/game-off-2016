@@ -106,7 +106,16 @@ function draw_character(character){
 			if(Math.random() < corruptChance){
 				portrait_corrupt=Math.ceil(Math.min(Math.max(1, portrait_corrupt+corrupt()), num_portraits-4).toString(10));
 			}
-			ctx.drawImage(images["portrait_"+portrait_corrupt].img, x+distort(), y+distort(), w+distort(), h+distort(), rw*(portrait_x+x+breakup()), rh*(portrait_y+y+breakup()), rw*w, rh*h);
+
+			var sx=Math.min(portrait_w, Math.max(0,x+distort()));
+			var sy=Math.min(portrait_h, Math.max(0,y+distort()));
+			var sw=Math.min(portrait_w, Math.max(1,w+distort()));
+			var sh=Math.min(portrait_h, Math.max(1,h+distort()));
+			var dx=Math.min(portrait_w, Math.max(0,rw*(portrait_x+x+breakup())));
+			var dy=Math.min(portrait_h, Math.max(0,rh*(portrait_y+y+breakup())));
+			var dw=Math.min(portrait_w, Math.max(1,rw*w));
+			var dh=Math.min(portrait_h, Math.max(1,rh*h));
+			ctx.drawImage(images["portrait_"+portrait_corrupt].img, sx, sy, sw, sh, dx, dy, dw, dh);
 		}		
 	}
 
