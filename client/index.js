@@ -449,7 +449,11 @@ function printWindow(w){
 			&& event.source === window
 			&& event.data == "print"){
 			setTimeout(function(){
-				w.print();
+				try{
+					w.print();
+				}catch(exception){
+					console.log("print popup not displayed; "+exception.toString());
+				}
 			},100);
 		}
 	});
@@ -458,7 +462,7 @@ function printWindow(w){
 
 function printRules(){
 	// snippet adapted from http://stackoverflow.com/a/2255438
-	var mywindow = window.open('', 'print', 'height=400,width=600');
+	var mywindow = window.open('', '_blank', 'height=400,width=600');
     mywindow.document.write('<html><head><title>' + document.title  + ' - rules</title>');
     mywindow.document.write('<link rel="stylesheet" type="text/css" href="assets/style.css"/>');
     mywindow.document.write('</head><body>')
@@ -470,7 +474,7 @@ function printRules(){
 }
 
 function printPng(){
-	var mywindow=window.open('','print','width='+size.x+',height='+size.y);
+	var mywindow=window.open('','_blank','width='+size.x+',height='+size.y);
     mywindow.document.write('<html><head><title>' + document.title  + ' - gameset</title>');
     mywindow.document.write('</head><body>')
 	mywindow.document.write('<img src="'+dataURL+'"" width="'+size.x+'" height="'+size.y+'"/>');
@@ -479,7 +483,14 @@ function printPng(){
 }
 function printPdf(){
 	try{
-    	printWindow(window.open(URL.createObjectURL(pdfDocument.output("blob"))));
+		var b=pdfDocument.output("blob");
+		var w;
+		if(window.navigator && window.navigator.msSaveOrOpenBlob){
+			// IE/Edge deny access for printing from the window like Chrome/Firefox, so use their blob save instead
+			w=window.navigator.msSaveOrOpenBlob(b);
+		}else{
+    		printWindow(window.open(URL.createObjectURL(b),"_blank"));
+		}
 	}catch(e){
 		alert("Sorry! Something went wrong. jsPDF probably doesn't work with your browser, you'll have to print the PNG version if you want to play.\n\nError message:\n"+e.toString());
 	}
