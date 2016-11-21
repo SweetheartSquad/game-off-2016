@@ -100,8 +100,8 @@ function draw_character(character){
 	ctx.fillRect(portrait_x*rw,portrait_y*rh, portrait_w*rw, portrait_h*rh);
 	for(var x=0; x < portrait_w+tw; x+=tw){
 		for(var y=0; y < portrait_h+th; y+=th){
-			var w=Math.min(tw, portrait_w-(x+tw));
-			var h=Math.min(th, portrait_h-(y+th));
+			var w=Math.max(tw/2, Math.min(tw, portrait_w-(x+tw)));
+			var h=Math.max(th/2, Math.min(th, portrait_h-(y+th)));
 			var portrait_corrupt=character.portrait;
 			if(Math.random() < corruptChance){
 				portrait_corrupt=Math.ceil(Math.min(Math.max(1, portrait_corrupt+corrupt()), num_portraits-4).toString(10));
