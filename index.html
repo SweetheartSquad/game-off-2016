@@ -11,54 +11,37 @@
     <script src="vendor/jspdf.min.js"></script>
 </head>
 
-<body>
+<body onload="document.body.innerHTML += document.body.innerHTML;">
     <section id="description">
-        <h1>server.hack()</h1>
-        <p>a single-page cyberpunk board game for 2-4 players</p>
-        <p>made for <a href="https://itch.io/jam/procjam" target="_blank">PROCJAM 2016</a> and <a href="https://github.com/github/game-off-2016" target="_blank">GitHub Game-off 2016</a></p>
-        <p>v0.4</p>
+        <h1 style="margin-top:0;">server.hack(): a single-page cyberpunk board game for 2-4 players</h1>
+        <p><a href="https://sweetheartsquad.itch.io/server-hack">sweetheartsquad.itch.io/server-hack</a></p>
     </section>
-    <section id="ui">
-        <dl id="status">
-            <dt>Gameset Status:</dt>
-        </dl>
-        <button id="btnRules"   onclick="printRules();">Print Rules</button>
-        <button id="btnPng"     onclick="printPng();" disabled>Print Gameset (PNG)</button>
-        <button id="btnPdf"     onclick="printPdf();" disabled>Print Gameset (PDF)</button>
-        <button id="btnRefresh" onclick="window.location.reload();" disabled>Generate New Gameset</button>
-    </section>
-    <hr/>
-    <section id="rules">
-        <h1>How To Play</h1>
-
         <h2>Objective</h2>
-            <p>Finish the game with the highest number of File points.</p>
+            <p>Finish the game with the highest number of File points</p>
 
         <h2>Pieces</h2>
         <ul>
-            <li>Character cards have a set of 1-3 implants/traits which affect their final score.</li>
-            <li>File cards have a point value (0-3) and one of three filetypes. Once drawn, a File remains face-up for the rest of the game.</li>
-            <li>Program cards have text which explains what they do.</li>
-            <li>The Gameboard has a Server (the center of the board) and four paths leading to the Server.</li>
-            <li>The Avatar tokens are cubes used to represent player position on the Gameboard.</li>
+            <li>Character have a set of 1-3 traits which affect score</li>
+            <li>Files have a point value (0-3) and one of three types. Once drawn, a File remains face-up forever</li>
+            <li>Programs have text which explains what they do</li>
+            <li>The Gameboard has a Server (board center) and four paths leading to the Server</li>
+            <li>The Avatar tokens are cubes used to represent player position on the Gameboard</li>
         </ul>
 
         <h2>Setup</h2>
         <ol>
-            <li>Print a gameset.</li>
-            <li>Cut the gameset into individual pieces.</li>
-            <li>Shuffle Character cards and have each player choose one randomly. Look at your own, but keep these secret from other players until the end of the game.</li>
-            <li>Shuffle the File cards and place the deck facedown by the Gameboard.</li>
-            <li>Shuffle the Program cards and place the deck facedown by the Gameboard.</li>
-            <li>Place an avatar token for each player on the "start" positions on the Gameboard.</li>
-            <li>Decide who goes first.</li>
+            <li>Print a gameset</li>
+            <li>Cut the gameset into individual pieces</li>
+            <li>Shuffle Characters and distribute; look at your own, but keep these secret from other players until the end of the game</li>
+            <li>Shuffle Files and place deck facedown</li>
+            <li>Shuffle Programs and place deck facedown</li>
+            <li>Place an avatar token for each player on the "start" positions on the Gameboard</li>
+            <li>Decide who goes first</li>
         </ol>
 
         <h2>Playing</h2>
         <ul>
-            <li>Each player gets 2 actions per turn.
-            <li>
-                Actions:
+            <li>Each player gets 2 actions per turn
                 <ul>
                     <li>Move your Avatar 1 space</li>
                     <li>Draw a Program card facedown</li>
@@ -66,74 +49,18 @@
                     <li>If on the Server, draw a File faceup</li>
                 </ul>
             </li>
-            <li>Once a player has used both of their actions, the next player starts their turn.</li>
-            <li>When Programs are used, place the cards in a separate pile. Once every Program card has been drawn, re-shuffle this pile and use it as the new Program deck.</li>
-        </ul>
-
-        <h2>Game Over</h2>
-        <ul>
-            <li>As soon as the last File is drawn, the game is over. Each player reveals their Character card, and points are tallied. You may not use any remaining Programs.
-            <li>A player's points are calculated as the sum of all the Files they hold, plus any bonuses/modifiers from their Character card.
-        </ul>
-
-        <h2>Ties</h2>
-        <ul>
-            <li>If two or more players are tied for first place, continue the game by drawing/playing Programs until the tie is broken.</li>
+            <li>When Programs are used, place them in a separate pile; once every Program has been drawn, shuffle and re-use this pile as a new Program deck</li>
+            <li>The game ends when the last File is drawn: reveal Characters and tally points (you MAY NOT use any remaining Programs)</li>
+            <li>Points are calculated as the sum of all Files held, plus any extra from Characters</li>
         </ul>
         
         <h2>Misc.</h2>
         <ul>
-            <li>You can move forwards or backwards. For example: if a player uses the Program "target player moves up to 2 spaces", they could A) target themselves and move forwards, or B) target another player and move them backwards.</li>
-            <li>You can choose to do the same action twice on your turn. For example, you could draw two Program cards.</li>
-            <li>If multiple players need to draw cards at the same time (e.g. the Program "everyone draw 3 cards"), start with the player who used the Program and continue in turn order.</li>
+            <li>If players tie for first place, continue the game drawing/playing Programs until the tie is broken</li>
+            <li>You can move forward or backward (e.g. if a player uses the Program "target player moves up to 2 spaces" they could move themself forwar OR move someone else backward)</li>
+            <li>You can use same action twice on a turn (e.g. you could draw two Program cards)</li>
+            <li>If multiple players need to draw cards at the same time (e.g. the Program "everyone draw 3 cards") start with the player who used the Program and continue in turn order</li>
         </ul>
-
-    </section>
-
-    <hr/>
-
-    <section id="details">
-        <h1>Gameset Details</h1>
-        <p>A full gameset is fitted to a single letter-sized piece of paper, which needs to be cut into individual pieces.</p>
-        <table>
-            <tr>
-                <td><img src="example-gameset.png" alt="example gameset" title="example gameset" width="319" height="413"/></td>
-                <td>
-                    <p>When finished cutting, you should have:</p>
-                    <ul>
-                        <li>4 Character cards</li>
-                        <li>20 File cards</li>
-                        <li>30 Program cards</li>
-                        <li>1 Gameboard</li>
-                        <li>4 Avatar tokens</li>
-                    </ul>
-                </td>
-            </tr>
-        </table>
-        <p>The Avatar tokens on the corners of the Gameboard are simple papercrafts, and can be assembled like so:</p>
-        <img src="avatar-instructions.png" alt="instructions on how to assemble avatar tokens" title="instructions on how to assemble avatar tokens" width="500" height="200"/>
-        <p>If you prefer, you can cut out and use the center squares alone to save some setup time.</p>
-        <p>An example of an entire assembled gameset can be seen below:</p>
-        
-        <p><img src="example-assembled-gameset.png" alt="example assembled gameset" title="example assembled gameset" width="500" height="200"/></p>
-        
-        <hr/>
-
-        <h1>Resources Used</h1>
-        <ul>
-            <li><a href="https://github.com/MrRio/jsPDF" target="_blank">jsPDF</a></li>
-            <li><a href="photo credits.txt" target="_blank">Wikimedia Commons stock photos</a></li>
-        </ul> 
-
-        <br/><br/><br/>
-
-    </section>
-    <section id="main">
-        <canvas id="canvas"></canvas>
-        <img id="img-preview" src=""/>
-    </section>
-
-    <!-- CLIENT SCRIPTS -->
-    <script src="client/words.js"></script>
-    <script src="client/index.js"></script>
+    <sub>Resources Used: jsPDF, Wikimedia Commons stock photos</sub>
+    <br>
 </body>
